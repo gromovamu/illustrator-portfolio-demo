@@ -1,0 +1,45 @@
+.icon {
+    width: 45px; 
+    height: 60px; 
+    color: inherit;
+    fill: currentColor;    
+}
+
+.img {
+    display: inline-block;
+    fill: var(--nav-color);   
+    transition: color 0.3s ease-in-out;
+}
+
+.link {
+    display: inline-block;
+    color: var(--nav-color);   
+    transition: color 0.3s ease-in-out;
+}
+
+.link:focus-visible {
+color: var(----decor-light-color);
+outline: none;
+}
+
+.link:hover {
+color: var(--title-color);
+}
+
+.link:active {
+color: var(--text-color);
+}
+
+@media (max-width: 860px) {
+.icon {
+    width: 40px;
+    height: 53px;
+}
+}
+
+@media (max-width: 520px) {
+.icon {
+    width: 30px;
+    height: 39px;
+}
+}
