@@ -1,0 +1,79 @@
+.button {
+    display: inline-block;
+    margin: 0;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;   
+    cursor: pointer;
+    text-align: center;     
+    font-weight: 400;
+    line-height: 14px;
+    font-size: 14px; 
+    font-family: inherit;    
+}
+
+/* hover-effects */
+.button:focus-visible  {
+    outline: none;
+}
+
+/* -------- primary ------ */
+
+.primary {
+    color: var(--white);
+    background-color: var(--primary);    
+    transition: background-color 0.3s ease-in-out;
+}
+
+.primary:focus-visible {
+    background-color: var(--primary-focus);    
+}
+
+.primary:hover {
+    background-color: var(--primary-hover);
+}
+
+.primary:active {
+    background-color: var(--primary-active);
+}
+
+/* --------- ghost ----- */
+.ghost {
+    border: 1px solid var(--grey-light);
+    color: var(--black);
+    background-color: transparent;   
+    transition: background-color 0.3s ease-in-out, border-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* hover-effects */
+.ghost:focus-visible {
+    border-color: var(--grey);
+    background-color: var(--grey-light);
+}
+
+.ghost:hover {
+    color: var(--white);
+    background-color: var(--primary);
+}
+
+.ghost:active {
+    border-color: var(--primary-active);
+    background-color: var(--primary-active);
+}
+
+/* ------ arrrow -------- */
+.arrow {
+    display: inline-block;
+    margin-left: 10px;
+}
+
+.down {
+    transform: rotate(90deg);  
+    transition: transform 0.3s ease-in-out;
+}
+
+/* ------ icon -------- */
+.icon {
+    color:inherit;
+    fill: currentColor;
+}

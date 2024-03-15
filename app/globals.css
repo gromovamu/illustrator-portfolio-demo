@@ -1,6 +1,5 @@
 /* global*/
-:root {
-  --nav-color: #5D3D35;
+:root {  
   --title-color: #8C633F;
   --background-color: #FFFFFF;
   --button-color: #432F1F;
@@ -15,10 +14,13 @@
   --padding-big: 60px;
   --padding-container: 32px;
   --padding-mobile-container: 16px;
-  /*--decor-font: 'AdventPro_Expanded';
-  --text-font: 'Roboto';*/
   --icon-color: var(--decor-light-color);
+  --nav-color: #5D3D35;
+  --nav-color-focus: var(--decor-light-color);
+  --nav-color-hover: var(--title-color);
+  --nav-color-active: var(--text-color);
 }
+
 /*----------------------------------------*/
 html {
   box-sizing: border-box;

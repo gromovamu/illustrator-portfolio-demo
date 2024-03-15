@@ -18,16 +18,16 @@
 }
 
 .link:focus-visible {
-color: var(----decor-light-color);
+color: var(--nav-color-focus);
 outline: none;
 }
 
 .link:hover {
-color: var(--title-color);
+color: var(--nav-color-hover);
 }
 
 .link:active {
-color: var(--text-color);
+color: var(--nav-color-active);
 }
 
 @media (max-width: 860px) {

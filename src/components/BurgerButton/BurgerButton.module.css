@@ -1,0 +1,49 @@
+.burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    color: var(--nav-color);
+    transition: color 0.3s ease-in-out;
+}
+
+.line {
+    display: block;
+    width: 30px;
+    height: 4px;
+    border-radius: 5px;
+    background-color: currentColor;
+    transition: transform 0.2s ease-in-out;
+}
+
+.burgerClose .lineTop {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.burgerClose .lineDown {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.burgerClose .lineCenter {
+    transform: scaleX(0);
+}
+
+.burger:focus-visible {
+    color: var(--nav-color-focus);
+    outline: none;
+}
+
+.burger:hover {
+    color: var(--nav-color-hover);
+}
+
+.burger:active {
+    color: var(--nav-color-active);
+}
+
+@media (max-width: 520px) {
+    .line {
+        width: 24px;
+        height: 3px;
+    }
+}
