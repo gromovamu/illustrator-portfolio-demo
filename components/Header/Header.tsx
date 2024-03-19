@@ -41,11 +41,13 @@ const menuLinkData = {
 };
 
 export const Header = ({ ...props }: HeaderProps): JSX.Element => {
+  const burgerMenu = [...menuLinkData.left, ...menuLinkData.right];
+
   return (<header className={cn(styles.header, adventPro.className)} {...props}>
     <div className={styles.fixedTop}>
       <div className={cn('container', styles.container)}>
         <Menu menu={menuLinkData} />
-        <BurgerMenu menu={menuLinkData} />
+        <BurgerMenu menu={burgerMenu} />
       </div>
     </div>
     <div className={styles.plug}></div>

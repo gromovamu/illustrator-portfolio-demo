@@ -6,46 +6,61 @@ import pageStyles from "@/app/page.module.css";
 import cn from "classnames";
 import Link from "next/link";
 import { Logo, BurgerButton } from "@/components";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useSpring, animated } from '@react-spring/web';
 
 export const BurgerMenu = ({ menu, className, ...props }: BurgerMenuProps): JSX.Element => {
   const [isOpenMode, setIsOpenMode] = useState<boolean>(false);
 
   const [springs, api] = useSpring(() => ({
-    from: { x: 0 },
+        from: {
+      x: 0,
+      opacity: 0,
+    },
   }));
-
-  const startAnimate = () => {
-    console.log('start animate');
+  
+  const startAnimate = () => {    
     !isOpenMode && api.start({
-      from: {       
+      from: {
         x: -100,
+        opacity: 0,
       },
-      to: {        
-        x: 100,
+      to: {
+        x: 0,
+        opacity: 1,
+      },
+      config: {
+        duration: 300,        
+      },
+    });
+
+    isOpenMode && api.start({
+      from: {
+        x: 0,
+        opacity: 1,
+      },
+      to: {
+        x: -100,
+        opacity: 0,
+      },
+      config: {
+        duration: 200
       },
     });
   };
 
-  useEffect(() => {
+  const setOpen = (mode: boolean) => {
     startAnimate();
-  }, [isOpenMode]);
-
-
+    setIsOpenMode(mode);
+  };
 
   return (
     <nav className={cn(styles.nav, className)} {...props}>
-      <BurgerButton isOpenMode={isOpenMode} setIsOpenMode={setIsOpenMode} />
+      <BurgerButton isOpenMode={isOpenMode} setIsOpenMode={setOpen} />
       <Logo isLink={true} />
 
       <animated.ul className={cn("list", styles.list)} style={springs}>
-        {menu.left.map(m => (
-          <li key={m.id} className={styles.item}>
-            <Link href={m.href} className={pageStyles.link}>{m.name}</Link>
-          </li>
-        ))}
-        {menu.right.map(m => (
+        {menu.map(m => (
           <li key={m.id} className={styles.item}>
             <Link href={m.href} className={pageStyles.link}>{m.name}</Link>
           </li>
