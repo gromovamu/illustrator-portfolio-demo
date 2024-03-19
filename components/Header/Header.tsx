@@ -1,8 +1,8 @@
 import { HeaderProps } from "./Header.props";
 import styles from "./Header.module.css";
 import cn from "classnames";
-import { BurgerMenu, Menu } from "@/src/components";
-import { adventPro } from "@/src/fonts/fonts";
+import { BurgerMenu, Menu } from "@/components";
+import { adventPro } from "@/fonts/fonts";
 
 const menuLinkData = {
   left: [{

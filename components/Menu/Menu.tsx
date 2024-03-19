@@ -3,7 +3,7 @@ import styles from "./Menu.module.css";
 import pageStyles from "@/app/page.module.css";
 import cn from "classnames";
 import { Logo } from "../Logo/Logo";
-import { adventPro } from "@/src/fonts/fonts";
+import { adventPro } from "@/fonts/fonts";
 import Link from "next/link";
 
 export const Menu = ({ menu, className, ...props}: MenuProps): JSX.Element => {    
