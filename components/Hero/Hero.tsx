@@ -20,8 +20,8 @@ export const Hero = ({ className, ...props }: HeroProps): JSX.Element => {
 
         <div className={styles.avatarContainer}>
           <Image className={styles.avatar}
-            width={358}
-            height={358}
+            fill
+            sizes="(max-width: 860px) 250px, (max-width: 1200px) 358px"
             src={'/img/main/avatar.png'}
             alt='Аватар: иллистратор Громова Мария' />
         </div>

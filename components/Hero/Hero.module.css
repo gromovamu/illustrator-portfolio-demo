@@ -13,11 +13,17 @@
     padding:  150px 200px 0 0;
     width: 65%;
   }
+
+  .avatar {
+    object-fit: contain;
+  }
   
   .avatarContainer {
     position: absolute;
     top: 0;
     right: 0;
+    width: 358px;
+    height: 358px;
   }
   
   .content {
@@ -100,7 +106,8 @@
     }
   
     .title {
-      margin-bottom: 8px;     
+      margin-bottom: 8px; 
+      font-size: 26px;    
     }
   
     .title {
