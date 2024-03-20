@@ -8,3 +8,5 @@ export * from "./Htag/Htag";
 export * from "./InlineLink/InlineLink";
 export * from "./Text/Text";
 export * from "./Hero/Hero";
+export * from "./Divider/Divider";
+

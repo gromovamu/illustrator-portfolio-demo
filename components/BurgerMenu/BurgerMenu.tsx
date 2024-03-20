@@ -12,40 +12,39 @@ import { useSpring, animated } from '@react-spring/web';
 export const BurgerMenu = ({ menu, className, ...props }: BurgerMenuProps): JSX.Element => {
   const [isOpenMode, setIsOpenMode] = useState<boolean>(false);
 
-  const [springs, api] = useSpring(() => ({
-        from: {
-      x: 0,
-      opacity: 0,
-    },
+  const [springs, api] = useSpring(() => ({    
+      x: -400,
+      opacity: 0,     
   }));
   
   const startAnimate = () => {    
     !isOpenMode && api.start({
       from: {
         x: -100,
-        opacity: 0,
+        opacity: 0,           
       },
       to: {
         x: 0,
-        opacity: 1,
+        opacity: 1,      
       },
       config: {
         duration: 300,        
-      },
+      },    
     });
 
     isOpenMode && api.start({
       from: {
         x: 0,
-        opacity: 1,
+        opacity: 1,      
       },
       to: {
-        x: -100,
-        opacity: 0,
+        x: -500,        
+        opacity: 0,       
       },
       config: {
-        duration: 200
+        duration: 300
       },
+     
     });
   };
 

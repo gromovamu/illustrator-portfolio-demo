@@ -17,7 +17,7 @@
   --icon-color: var(--decor-light-color);
   --nav-color: #5D3D35;
   --nav-color-focus: var(--decor-light-color);
-  --nav-color-hover: var(--title-color);
+  --nav-color-hover: #bb9389;
   --nav-color-active: var(--text-color);
 }
 
