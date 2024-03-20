@@ -1,0 +1,11 @@
+.card {
+    padding: var(--padding);
+    border-radius: 16px;
+    background-color: var(--decor-block-color);
+  }
+
+  @media (max-width: 520px) {  
+    .card {
+      padding: var(--padding-small);    
+    }
+  }  

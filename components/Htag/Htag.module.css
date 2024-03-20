@@ -1,0 +1,46 @@
+
+.disable {
+    display: none;
+}
+
+.title {
+    line-height: 104%;
+    color: var(--title-color);
+}
+
+.big {
+    font-size: 46px;
+    font-weight: 700;
+}
+
+.medium {
+    font-size: 38px;
+    font-weight: 700;
+}
+
+.small {
+    font-size: 34px;
+    line-height: 120%;
+    font-weight: 600;
+}
+
+
+@media (max-width: 520px) {
+
+    .big {
+        font-size: 32px;
+        font-weight: 700;
+    }
+    
+    .medium {
+        font-size: 30px;
+        font-weight: 700;
+    }
+    
+    .small {
+        font-size: 24px;
+        line-height: 120%;
+        font-weight: 600;
+    }
+
+}
