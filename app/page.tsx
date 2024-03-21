@@ -1,7 +1,7 @@
 //import Image from "next/image";
 //import styles from "./page.module.css";
 
-import { Htag, Hero, Divider} from "@/components";
+import { Htag, Hero, Divider, LinkButton} from "@/components";
 
 export default function Home() {
   return (
@@ -9,7 +9,8 @@ export default function Home() {
       <Htag tag='h1'>Иллюстратор Громова Мария</Htag>
       <div className="container">
           <Hero/>
-          <Divider/>   
+          <Divider/>
+          <LinkButton href="#"> Подробнее </LinkButton>   
       </div>
     </main>
   );
