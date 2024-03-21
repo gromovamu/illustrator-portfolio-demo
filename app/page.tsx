@@ -1,7 +1,24 @@
 //import Image from "next/image";
 //import styles from "./page.module.css";
 
-import { Htag, Hero, Divider, LinkButton} from "@/components";
+import { Htag, Hero, Divider, LinkButton, ShortServices} from "@/components";
+import { Service } from "@/interfaces/service.interfaces";
+
+
+const shortServicesData: Service[] = [
+  {
+    id: 1,
+    iconSrc: "/img/svg/coverIcon.svg",
+    title: "Обложки",
+    descr: "Разработка дизайн обложек для электронных и печатных изданий"
+  }, 
+  {
+    id: 2,
+    iconSrc: "/img/svg/illustrationIcon.svg",
+    title: "Иллюстрация",
+    descr: "Векторные изображения, разработка персонажей, небольшие серии иллюстрация"
+  }
+];
 
 export default function Home() {
   return (
@@ -10,7 +27,7 @@ export default function Home() {
       <div className="container">
           <Hero/>
           <Divider/>
-          <LinkButton href="#"> Подробнее </LinkButton>   
+          <ShortServices servicesList={shortServicesData}/>
       </div>
     </main>
   );

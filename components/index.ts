@@ -10,4 +10,5 @@ export * from "./Text/Text";
 export * from "./Hero/Hero";
 export * from "./Divider/Divider";
 export * from "./Button/Button";
-
+export * from "./ShortServiceCard/ShortServiceCard";
+export * from "./ShortServices/ShortServices";
