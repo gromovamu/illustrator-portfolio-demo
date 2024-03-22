@@ -2,7 +2,7 @@ import { HeaderProps } from "./Header.props";
 import styles from "./Header.module.css";
 import cn from "classnames";
 import { BurgerMenu, Menu } from "@/components";
-import { adventPro } from "@/fonts/fonts";
+import { decorFont } from "@/fonts/fonts";
 
 const menuLinkData = {
   left: [{
@@ -43,7 +43,7 @@ const menuLinkData = {
 export const Header = ({ ...props }: HeaderProps): JSX.Element => {
   const burgerMenu = [...menuLinkData.left, ...menuLinkData.right];
 
-  return (<header className={cn(styles.header, adventPro.className)} {...props}>
+  return (<header className={cn(styles.header, decorFont.className)} {...props}>
     <div className={styles.fixedTop}>
       <div className={cn('container', styles.container)}>
         <Menu menu={menuLinkData} />

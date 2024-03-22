@@ -1,13 +1,12 @@
 import { FooterProps } from "./Footer.props";
 import styles from "./Footer.module.css";
 import cn from "classnames";
-import { adventPro } from "@/fonts/fonts";
+import { decorFont } from "@/fonts/fonts";
 import { SocialLink } from "@/components";
 
 
 export const Footer = ({ socialLinkList, className, ...props }: FooterProps): JSX.Element => {
-    const nowDate = new Date();
-    console.log(socialLinkList);
+    const nowDate = new Date();   
     return (
         <footer className={cn(styles.footer, className)}
             {...props}>
@@ -18,10 +17,9 @@ export const Footer = ({ socialLinkList, className, ...props }: FooterProps): JS
                     </li>
                 ))}
             </ul>
-            <div className={cn(adventPro.className, styles.copy)}> &copy;&nbsp;Громова М.Ю.,&nbsp;
+            <div className={cn(decorFont.className, styles.copy)}> &copy;&nbsp;Громова М.Ю.,&nbsp;
                 <span className={styles.year}>2021&nbsp;&mdash;&nbsp;{nowDate.getFullYear()}</span>
             </div>
         </footer>);
 };
 
-/* */

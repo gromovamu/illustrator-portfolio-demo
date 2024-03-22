@@ -3,7 +3,7 @@ import localFont  from "next/font/local";
 
 //export const notoSans = Noto_Sans({ subsets: ["cyrillic"] });
 
-export const roboto = localFont({
+export const textFont = localFont({
     src: [
       {
         path: './Roboto-Regular.woff',
@@ -19,7 +19,7 @@ export const roboto = localFont({
   });
 
 
-export const adventPro = localFont({
+export const decorFont = localFont({
 src: [
     {
     path: './AdventPro_Expanded-Medium.woff',
