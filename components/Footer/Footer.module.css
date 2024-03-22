@@ -1,0 +1,64 @@
+.footer {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--padding-small);
+  padding: var(--padding);
+}
+
+.footer::after {
+  position: absolute;
+  content: '';
+  top: 0;
+  width: 100%;
+  height: 2px;
+  border-radius: 2px;
+  background-color: var(--nav-color);
+}
+
+.copy {
+  font-size: 24px;
+  line-height: 100%;
+  font-weight: 600;
+  color: var(--nav-color);
+}
+
+.year {
+  font-size: 0.9em;
+}
+
+.socialList {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.socialItem {
+  font-size: 0;
+}
+
+@media (max-width: 860px) {
+  .footer {
+    padding: var(--padding-small);
+    gap: 8px;
+  }
+
+  .copy {
+    font-size: 22px;
+  }
+}
+
+@media (max-width: 520px) {
+
+  .copy {
+    font-size: 18px;
+  }
+
+  .socialList {
+    gap: 12px;
+  }
+}

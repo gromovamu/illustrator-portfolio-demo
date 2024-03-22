@@ -1,8 +1,9 @@
 //import Image from "next/image";
 //import styles from "./page.module.css";
 
-import { Htag, Hero, Divider, LinkButton, ShortServices} from "@/components";
+import { Htag, Hero, Divider, ShortServices, Footer} from "@/components";
 import { Service } from "@/interfaces/service.interfaces";
+import { Social } from "@/interfaces/social.interfaces";
 
 
 const shortServicesData: Service[] = [
@@ -20,6 +21,21 @@ const shortServicesData: Service[] = [
   }
 ];
 
+const socialLinkList: Social[] = [
+  {
+    type:'be',
+    src: '',
+  },
+  {
+    type:'vk',
+    src: '',
+  },
+  {
+    type:'tel',
+    src: '',
+  },
+];
+
 export default function Home() {
   return (
     <main>
@@ -28,6 +44,7 @@ export default function Home() {
           <Hero/>
           <Divider/>
           <ShortServices servicesList={shortServicesData}/>
+          <Footer socialLinkList={socialLinkList}/>
       </div>
     </main>
   );

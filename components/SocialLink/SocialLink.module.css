@@ -1,0 +1,23 @@
+.link {
+  color: var(--title-color);
+}
+
+.link:focus-visible {
+  color: var(--nav-color-focus);
+  outline: none;
+}
+
+.link:hover {
+  color: var(--nav-color-hover);
+}
+
+.link:active {
+  color: var(--nav-color-active);
+}
+
+.icon {
+  width: 36px;
+  height: 36px;
+  color:inherit;
+  fill: currentColor;
+}
