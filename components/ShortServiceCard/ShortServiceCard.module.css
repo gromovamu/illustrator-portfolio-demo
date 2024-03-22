@@ -1,7 +1,8 @@
 .card {
     display: grid;
     grid-template-columns: [start] auto [iconEnd] 1fr [end];
-    gap: 0 var(--padding);
+    grid-template-rows: auto 1fr;
+    gap: 8px var(--padding);
 }
 
 .icon {
@@ -13,14 +14,12 @@
 }
 
 .title {
-    grid-column: iconEnd / end;
-    margin-bottom: 8px;
+    grid-column: iconEnd / end;   
 }
 
 .descr {
-    grid-column: iconEnd / end ;
+    grid-column: iconEnd / end;
 }
-
 
 @media (max-width: 860px) {
     .icon {
@@ -29,28 +28,23 @@
     }
 }
 
-
 @media (max-width: 760px) {
     .card {
         display: flex;
-        flex-direction: column;       
+        flex-direction: column;
         padding: var(--padding-small) var(--padding);
         align-items: center;
-        justify-content: center;    
-        gap: 8px ;
+        justify-content: center;
+        gap: 8px;
     }
 
     .icon {
-        position: relative;      
+        position: relative;
     }
-
-    .title {       
-        margin-bottom: 0;     
-    } 
 }
 
 @media (max-width: 520px) {
-    .card {       
-        padding: var(--padding-small) ;
+    .card {
+        padding: var(--padding-small);
     }
 }

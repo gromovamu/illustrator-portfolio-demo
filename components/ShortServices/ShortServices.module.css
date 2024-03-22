@@ -11,7 +11,7 @@
 .list {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--padding-small) var(--padding);
+    gap: var(--padding);
     max-width: 80%;
 }
 
@@ -37,6 +37,7 @@
     .list {
         grid-template-columns: 1fr;
         max-width: 70%;
+        gap: var(--padding-small);
     }
 }
 

@@ -18,8 +18,7 @@ const shortServicesData: Service[] = [
     iconSrc: "/img/svg/illustrationIcon.svg",
     title: "Иллюстрация",
     descr: "Векторные изображения, разработка персонажей, небольшие серии иллюстрация"
-  }
-];
+  }];
 
 const socialLinkList: Social[] = [
   {
