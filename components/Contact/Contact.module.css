@@ -1,0 +1,13 @@
+.contact {
+    padding: var(--padding-medium) 0;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.text {
+    width: 50%;
+}
+
+.title {
+    margin-bottom: 8px;
+}

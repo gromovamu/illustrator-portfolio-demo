@@ -14,3 +14,5 @@ export * from "./ShortServiceCard/ShortServiceCard";
 export * from "./ShortServices/ShortServices";
 export * from "./Footer/Footer";
 export * from "./SocialLink/SocialLink";
+export * from "./Contact/Contact";
+

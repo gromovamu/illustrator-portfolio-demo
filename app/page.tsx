@@ -1,7 +1,8 @@
 //import Image from "next/image";
 //import styles from "./page.module.css";
 
-import { Htag, Hero, Divider, ShortServices, Footer} from "@/components";
+import { Htag, Hero, Divider, ShortServices, Footer, Contact} from "@/components";
+import { ContactData } from "@/interfaces/contact.interfaces";
 import { Service } from "@/interfaces/service.interfaces";
 import { Social } from "@/interfaces/social.interfaces";
 
@@ -35,6 +36,17 @@ const socialLinkList: Social[] = [
   },
 ];
 
+const telegram: ContactData = {
+  text: "@mugromova",
+  href: "https://t.me/mugromova"
+};
+
+const mail: ContactData = {
+  text: "mu_g_art@mail.ru",
+  href: "mailto:mu_g_art@mail.ru"
+};
+
+
 export default function Home() {
   return (
     <main>
@@ -43,6 +55,8 @@ export default function Home() {
           <Hero/>
           <Divider/>
           <ShortServices servicesList={shortServicesData}/>
+          <Divider opt="right"/>
+          <Contact telegram={telegram} mail={mail}/>       
           <Footer socialLinkList={socialLinkList}/>
       </div>
     </main>
