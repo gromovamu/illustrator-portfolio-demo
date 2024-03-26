@@ -8,60 +8,33 @@ import Link from "next/link";
 import { Logo, BurgerButton } from "@/components";
 import { useState } from "react";
 import { useSpring, animated } from '@react-spring/web';
+import { easings } from '@react-spring/web'
 
 export const BurgerMenu = ({ menu, className, ...props }: BurgerMenuProps): JSX.Element => {
   const [isOpenMode, setIsOpenMode] = useState<boolean>(false);
 
-  const [springs, api] = useSpring(() => ({    
-      x: -400,
-      opacity: 0,     
-  }));
-  
-  const startAnimate = () => {    
-    !isOpenMode && api.start({
-      from: {
-        x: -100,
-        opacity: 0,           
-      },
-      to: {
-        x: 0,
-        opacity: 1,      
-      },
+  const hideAnimate = useSpring(
+    {
+      x: isOpenMode ? '0%' : '-100%',
+      opacity: isOpenMode ? 1 : 0,
       config: {
-        duration: 300,        
-      },    
-    });
+        duration: isOpenMode ? 500 : 300,
+        easing: isOpenMode ? easings.easeOutBack : easings.easeInSine,
+      },
+    }
+  );
 
-    isOpenMode && api.start({
-      from: {
-        x: 0,
-        opacity: 1,      
-      },
-      to: {
-        x: -500,        
-        opacity: 0,       
-      },
-      config: {
-        duration: 300
-      },
-     
-    });
-  };
-
-  const setOpen = (mode: boolean) => {
-    startAnimate();
-    setIsOpenMode(mode);
-  };
+  const onClickLink = () => { setIsOpenMode(false) };
 
   return (
     <nav className={cn(styles.nav, className)} {...props}>
-      <BurgerButton isOpenMode={isOpenMode} setIsOpenMode={setOpen} />
-      <Logo isLink={true} />
+      <BurgerButton isOpenMode={isOpenMode} setIsOpenMode={setIsOpenMode} />
+      <Logo isLink={true} onClick={onClickLink} />
 
-      <animated.ul className={cn("list", styles.list)} style={springs}>
+      <animated.ul className={cn("list", styles.list)} style={hideAnimate}>
         {menu.map(m => (
           <li key={m.id} className={styles.item}>
-            <Link href={m.href} className={pageStyles.link}>{m.name}</Link>
+            <Link href={m.href} className={pageStyles.link} onClick={onClickLink}>{m.name}</Link>
           </li>
         ))}
       </animated.ul>

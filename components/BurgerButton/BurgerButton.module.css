@@ -5,6 +5,7 @@
     gap: 5px;
     color: var(--nav-color);
     transition: color 0.3s ease-in-out;
+    max-height: 22px;
 }
 
 .line {
@@ -14,14 +15,15 @@
     border-radius: 5px;
     background-color: currentColor;
     transition: transform 0.2s ease-in-out;
+    transform-origin: center;
 }
 
 .burgerClose .lineTop {
-    transform: translateY(9px) rotate(45deg);
+    transform: translateY(9px) rotate(45deg)  ;
 }
 
 .burgerClose .lineDown {
-    transform: translateY(-9px) rotate(-45deg);
+    transform: translateY(-9px)  rotate(-45deg) ;
 }
 
 .burgerClose .lineCenter {
@@ -45,5 +47,13 @@
     .line {
         width: 24px;
         height: 3px;
+    }
+
+    .burgerClose .lineTop {
+        transform: translateY(8px) rotate(45deg)  ;
+    }
+    
+    .burgerClose .lineDown {
+        transform: translateY(-8px)  rotate(-45deg) ;
     }
 }
