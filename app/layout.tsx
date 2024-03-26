@@ -1,12 +1,28 @@
 import type { Metadata } from "next";
 import "./normalize.css";
 import "./globals.css";
-import { Header } from "@/components";
+import { Header, Footer } from "@/components";
+import { Social } from "@/interfaces/social.interfaces";
 
 export const metadata: Metadata = {
   title: "Иллюстрации Громовой Марии",
   description: "Сайт-портофолио илюстратора Громовой МАрии",
 };
+
+const socialLinkList: Social[] = [
+  {
+    type:'be',
+    src: '',
+  },
+  {
+    type:'vk',
+    src: '',
+  },
+  {
+    type:'tel',
+    src: '',
+  },
+];
 
 export default function RootLayout({
   children,
@@ -15,9 +31,10 @@ export default function RootLayout({
 }>) {
   return (   
     <html lang="ru">      
-      <body>
+      <body className="body">
       <Header/>
         {children}
+      <Footer socialLinkList={socialLinkList}/>
       </body>
     </html>
   );

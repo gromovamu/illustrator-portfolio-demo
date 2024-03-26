@@ -30,12 +30,12 @@ const menuLinkData = {
     {
       id: 5,
       name: "Услуги",
-      href: "/"
+      href: "/services"
     },
     {
       id: 6,
       name: "Контакты",
-      href: "#contacts"
+      href: "/contacts"
     }
   ]
 };

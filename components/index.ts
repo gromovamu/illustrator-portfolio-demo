@@ -12,6 +12,8 @@ export * from "./Divider/Divider";
 export * from "./Button/Button";
 export * from "./ShortServiceCard/ShortServiceCard";
 export * from "./ShortServices/ShortServices";
+export * from "./ServiceCard/ServiceCard";
+export * from "./Services/Services";
 export * from "./Footer/Footer";
 export * from "./SocialLink/SocialLink";
 export * from "./Contact/Contact";
