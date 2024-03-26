@@ -1,0 +1,50 @@
+.card {
+    display: grid;
+    grid-template-columns: [start] auto [iconEnd] 1fr [end];
+    grid-template-rows: auto 1fr;
+    gap: 8px var(--padding);
+}
+
+.icon {
+    position: relative;
+    grid-column: start / iconEnd;
+    grid-row: span 2;
+    width: 80px;
+    height: 90px;
+}
+
+.title {
+    grid-column: iconEnd / end;   
+}
+
+.descr {
+    grid-column: iconEnd / end;
+}
+
+@media (max-width: 860px) {
+    .icon {
+        width: 63px;
+        height: 71px;
+    }
+}
+
+@media (max-width: 760px) {
+    .card {
+        display: flex;
+        flex-direction: column;
+        padding: var(--padding-small) var(--padding);
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+    }
+
+    .icon {
+        position: relative;
+    }
+}
+
+@media (max-width: 520px) {
+    .card {
+        padding: var(--padding-small);
+    }
+}

@@ -1,9 +1,9 @@
-import { ShortServicesProps } from "./ShortServices.props";
+import { ServicesProps } from "./Services.props";
 import styles from "./ShortServices.module.css";
 import cn from "classnames";
 import { ShortServiceCard, Htag, LinkButton } from "@/components";
 
-export const ShortServices = ({ servicesList, className, ...props }: ShortServicesProps): JSX.Element => {
+export const ShortServices = ({ servicesList, className, ...props }: ServicesProps): JSX.Element => {
   return (
     <section className={cn(styles.container, className)} {...props}>
       <Htag tag='h2' opt='big'>Услуги</Htag>

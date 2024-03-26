@@ -14,7 +14,7 @@ export const Hero = ({ className, ...props }: HeroProps): JSX.Element => {
           <Htag className={styles.title} tag='h3' opt='medium'> Добро пожаловать!</Htag>
           <Text className={styles.text}>
             Я&nbsp;рада приветсвовать вас на&nbsp;своей странице. Здесь вы&nbsp;можете познакомиться с&nbsp;моими работами, узнать немного обо мне или&nbsp;
-            <InlineLink href="#"> связаться&nbsp;со&nbsp;мной.</InlineLink>
+            <InlineLink href="#contacts" > связаться&nbsp;со&nbsp;мной.</InlineLink>
           </Text>
         </InfoCard>
 

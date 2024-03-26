@@ -1,14 +1,11 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
 import "./normalize.css";
 import "./globals.css";
 import { Header } from "@/components";
 
-const inter = Inter({ subsets: ["latin"] });
-
 export const metadata: Metadata = {
   title: "Иллюстрации Громовой Марии",
-  description: "Сайт-портофолио илююстратора Громовой МАрии",
+  description: "Сайт-портофолио илюстратора Громовой МАрии",
 };
 
 export default function RootLayout({
@@ -16,9 +13,9 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  return (
+  return (   
     <html lang="ru">      
-      <body className={inter.className}>
+      <body>
       <Header/>
         {children}
       </body>

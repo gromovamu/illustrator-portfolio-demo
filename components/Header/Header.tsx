@@ -35,7 +35,7 @@ const menuLinkData = {
     {
       id: 6,
       name: "Контакты",
-      href: "/"
+      href: "#contacts"
     }
   ]
 };
