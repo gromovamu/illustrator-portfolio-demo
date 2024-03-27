@@ -30,16 +30,25 @@
 
 @media (max-width: 760px) {
     .card {
-        display: flex;
-        flex-direction: column;
+        grid-template-columns: [start] 1fr [end];
         padding: var(--padding-small) var(--padding);
         align-items: center;
-        justify-content: center;
+        justify-items: center;
         gap: 8px;
     }
 
     .icon {
         position: relative;
+        grid-column: start / end;
+        grid-row: initial;
+    }
+
+    .title {
+        grid-column: initial;
+    }
+
+    .descr { 
+        grid-column: initial;
     }
 }
 
