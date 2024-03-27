@@ -3,4 +3,5 @@ export interface Service {
     iconSrc: string;
     title: string;
     descr: string;
+    text?: string[];
 }

@@ -1,49 +1,77 @@
 .card {
     display: grid;
-    grid-template-columns: [start] auto [iconEnd] 1fr [end];
-    grid-template-rows: auto 1fr;
-    gap: 8px var(--padding);
+    grid-template-columns: auto auto 1fr;
+    gap: 0 var(--padding);
 }
 
 .icon {
     position: relative;
-    grid-column: start / iconEnd;
-    grid-row: span 2;
+    grid-row: 1 / span 2;
+    align-self: center;
     width: 80px;
     height: 90px;
 }
 
 .title {
-    grid-column: iconEnd / end;   
+    margin-bottom: 8px;
 }
 
-.descr {
-    grid-column: iconEnd / end;
+.divider {
+    grid-row: 1 / span 2;
+    max-width: 4px;
+    width: 4px;
+    height: 100%;
+    border-radius: 2px;
+    background-color: var(--decor-light-color);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
 }
 
 @media (max-width: 860px) {
+    .card {
+        position: relative;
+        grid-template-columns: auto 1fr;
+        gap: 8px;
+    }
+
+    .title {
+        align-self: center;
+        margin-bottom: 0;
+        font-size: 34px;
+    }
+
     .icon {
+        grid-row: 1 / span 1;
         width: 63px;
         height: 71px;
+    }
+
+    .divider {
+        display: none;
+    }
+
+    .content {
+        grid-column: 1 / -1;
     }
 }
 
 @media (max-width: 760px) {
-    .card {
-        display: flex;
-        flex-direction: column;
-        padding: var(--padding-small) var(--padding);
-        align-items: center;
-        justify-content: center;
-        gap: 8px;
-    }
-
-    .icon {
-        position: relative;
+    .title {
+        font-size: 28px;
     }
 }
 
 @media (max-width: 520px) {
+    .card {
+        position: relative;
+        grid-template-columns: 1fr;
+        justify-items: center;
+    }
+
     .card {
         padding: var(--padding-small);
     }

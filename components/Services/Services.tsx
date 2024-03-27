@@ -9,7 +9,7 @@ export const Services = ({ servicesList, className, ...props }: ServicesProps): 
       <Htag tag='h2' opt='big'>Услуги</Htag>
       <div className={styles.list}>
         {servicesList && servicesList.map(service => (
-          <ServiceCard key={service.id} iconSrc={service.iconSrc} title={service.title} descr={service.descr} />
+          <ServiceCard key={service.id} iconSrc={service.iconSrc} title={service.title} text={service.text ?? []} />
         ))}
       </div>
       <LinkButton href="#">Подробнее</LinkButton>

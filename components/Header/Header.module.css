@@ -59,12 +59,12 @@
     }
   
     .plug {
-      height: 75px;
+      height: 90px;
     }
   }
   
   @media (max-width: 520px) {
     .plug {
-      height: 90px;
+      height: 80px;
     }
   }
