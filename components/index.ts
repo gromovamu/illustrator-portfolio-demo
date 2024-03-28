@@ -17,4 +17,4 @@ export * from "./Services/Services";
 export * from "./Footer/Footer";
 export * from "./SocialLink/SocialLink";
 export * from "./Contact/Contact";
-
+export * from "./WorkOrder/WorkOrder";

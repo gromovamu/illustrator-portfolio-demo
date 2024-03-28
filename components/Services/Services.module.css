@@ -4,7 +4,7 @@
     align-items: center;
     gap: var(--padding);
     margin: 0 auto;
-    padding: var(--padding-medium) 0;
+    padding: var(--padding) 0 var(--padding-medium);
 }
 
 .list {   

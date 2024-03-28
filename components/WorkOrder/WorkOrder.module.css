@@ -1,0 +1,144 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--padding);
+    margin: 0 auto;
+    padding: var(--padding-medium) 0;
+}
+
+.text {
+    width: 80%;
+}
+
+.term {
+    text-decoration: underline;
+}
+
+.list {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    column-gap: var(--padding);
+    row-gap: var(--padding-small);
+    list-style: none;
+}
+
+.step {
+    width: calc((100% - var(--padding) * 3)/4);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.numberContainer {
+    position: relative;
+    margin-bottom: 20px;
+    font-size: 0;
+}
+
+.decor {
+    display: block;
+    width: 30px;
+    height: 30px;
+    border-radius: 5px;
+    background-color: var(--title-color);
+    transform: rotate(45deg);
+}
+
+.number {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    width: 30px;
+    height: 30px;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 100%;
+    color: var(--text-color-light);
+    text-align: center;
+}
+
+.stepDescr {
+    padding: var(--padding-small);
+    margin: 0;
+    border-radius: 8px;
+    border: 2px solid var(--decor-color);
+    height: 100%;
+    font-size: 20px;
+    font-weight: 400;
+    line-height: 120%;
+    color: var(--text-color);
+}
+
+.defList {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+@media (max-width: 1200px) {
+    .step {
+        width: calc((100% - var(--padding) * 2)/3);
+    }
+
+    .preLast {
+        grid-column: initial;
+    }
+
+    .last {
+        grid-column: initial;
+    }
+
+}
+
+@media (max-width: 860px) {
+    .container {
+        padding: var(--padding) 0;
+    }
+
+    .numberContainer {       
+        margin-bottom: var(--padding-small);
+    }
+
+    .step {
+        width: calc((100% - var(--padding)) / 2);
+    }
+
+    .text {
+        width: 100%;
+    }
+}
+
+@media (max-width: 520px) {
+    .container {
+        padding: var(--padding-small) 0;
+        gap: var(--padding-small);
+    }
+
+    .list {
+        flex-direction: column;
+    }
+
+    .decor {       
+        width: 25px;
+        height: 25px;
+    }
+    
+    .number {
+        left: 2px;
+        width: 20px;
+        height: 20px;
+        font-size: 16px;
+    }
+
+    .step {
+        width: 100%;       
+    }
+        
+    .stepDescr {
+        font-size: 16px;
+    }
+}
