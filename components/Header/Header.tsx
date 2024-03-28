@@ -25,7 +25,7 @@ const menuLinkData = {
     {
       id: 4,
       name: "Обо мне",
-      href: "/"
+      href: "/info"
     },
     {
       id: 5,
