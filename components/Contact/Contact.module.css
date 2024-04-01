@@ -1,19 +1,81 @@
 .contact {
+    position: relative;    
     padding: var(--padding-medium) 0;
     margin: 0 auto;
     width: 80%;
+    min-height: min(450px, 60vh);
 }
 
-.text {
-    width: 50%;
+.text {  
+    width: 50%;    
 }
 
-.title {
+.title {   
     margin-bottom: 8px;
 }
 
+.imgContainer {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 65%;   
+    min-height: 100%;
+}
+
+.img {
+    object-fit: contain;
+    object-position: right bottom;   
+}
+
+@media (max-width: 1200px) {
+    .contact {
+        width: 85%;
+        min-height: min(400px, 60vh);
+    }
+
+    .text {  
+        width: 50%;    
+    }
+}
+
+@media (max-width: 1000px) {
+    .contact {
+        width: 85%;       
+    }
+
+    .text {  
+        width: 50%;    
+    }
+}
+
+
 @media (max-width: 760px) {
+    .contact {
+        width: 100%;
+    }
+
+    .imgContainer {
+        position: relative;  
+        top: initial;
+        right: initial;   
+        width: 100%;
+        min-height: min(250px, 60vh);
+    }
+
+    .img {       
+        object-position: center bottom;   
+    }
+
+    .text {
+        width: 85%;
+    }
+}
+
+@media (max-width: 520px) {
     .text {
         width: 100%;
+    }
+    .imgContainer {
+        min-height: min(200px, 60vh);
     }
 }
