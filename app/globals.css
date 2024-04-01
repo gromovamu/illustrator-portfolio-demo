@@ -90,3 +90,11 @@ body {
 .disable {
   display: none;
 }
+
+.in-screen-img {
+  position: relative;
+  display: flex;
+  margin: 0 auto;
+  width: 80vw;
+  height: 60vh;
+}
