@@ -1,7 +1,7 @@
-export type socialType = 'vk'|'be'|'tel';
+//export type socialType = 'vk'|'be'|'tel';
 
 export interface Social{    
-    type: socialType;
+    type: string;
     src: string;
 }
 

@@ -18,7 +18,7 @@ export const SocialLink = ({ type, href, className, ...props }: SocialLinkProps)
   };
 
   return (
-    <Link href={href} className={cn(styles.link, className)} {...props}>
+    <Link href={href} className={cn(styles.link, className)} target="_blank" {...props}>
       {getIcon()}
     </Link>
   );
