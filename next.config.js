@@ -1,14 +1,9 @@
 /** @type {import('next').NextConfig} */
 // eslint-disable-next-line no-undef
 module.exports = {
+  output: 'export',
   images: {    
-    remotePatterns: [
-      {
-        protocol: 'https',
-        hostname: 'courses-top.ru',
-        port: '',
-      },
-    ],
+    
   },
     webpack(config) {
       // Grab the existing rule that handles SVG imports
@@ -33,7 +28,7 @@ module.exports = {
       );
   
       // Modify the file loader rule to ignore *.svg, since we have it handled now.
-      fileLoaderRule.exclude = /\.svg$/i
+      fileLoaderRule.exclude = /\.svg$/i;
   
       return config;
     },

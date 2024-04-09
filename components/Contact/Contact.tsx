@@ -20,7 +20,7 @@ export const Contact = ({ mail, telegram, className, ...props }: ContactProps): 
         <InlineLink decor="back" href={mail.href}>
           {mail.text}
         </InlineLink>
-      </Text>       
+      </Text>
       <div className={styles.imgContainer}>
         <Image className={styles.img}
           fill
@@ -32,3 +32,5 @@ export const Contact = ({ mail, telegram, className, ...props }: ContactProps): 
     </section>);
 };
 
+//TODO: возможно здесь стоит использовать не svg, все же эта картинка декоративная
+// или использовать другой способ загрузки, если все же сделаю анимацию

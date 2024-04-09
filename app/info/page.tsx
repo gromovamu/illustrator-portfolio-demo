@@ -1,3 +1,4 @@
+'use client';
 import { Text, Htag } from "@/components";
 import Image from 'next/image';
 import styles from "./page.module.css";
@@ -12,9 +13,9 @@ export default function Page() {
       <section className={styles.info}>
         <div className={styles.container}>
           <div className={styles.imgContainer}>
-            <Image  className={styles.img}
+            <Image  className={styles.img}            
               fill
-              sizes="(max-width: 520px) 150px, (max-width: 860px) 225px, (max-width: 1000px) 280px, (max-width: 1200px) 350px"
+              unoptimized
               src={'/img/main/info-foto.jpg'}
               alt='Фото автора' />
           </div>         
