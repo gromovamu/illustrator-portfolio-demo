@@ -2,10 +2,11 @@
 import { Text, Htag } from "@/components";
 import Image from 'next/image';
 import styles from "./page.module.css";
+import { getAuthorInfo } from "@/api/getStaticContent";
 
-const info = " Меня зовут Громова Мария, я иллюстратор. Я закончила курсы коммерчесской иллюстрации онлайн школы skillbox и уже более двух лет рисую векторные иллюстрации. Основное напраление моей деятельности: обложки для электронных книг и небольшие серии милых иллюстраций";
 
 export default function Page() {
+  const info = getAuthorInfo();
   return (
     <div className="container">
       <Htag tag='h1'>Иллюстратор Громова Мария. Информация обо мне.</Htag>

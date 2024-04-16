@@ -18,3 +18,5 @@ export * from "./Footer/Footer";
 export * from "./SocialLink/SocialLink";
 export * from "./Contact/Contact";
 export * from "./WorkOrder/WorkOrder";
+export * from "./Card/Card";
+export * from "./CardList/CardList";

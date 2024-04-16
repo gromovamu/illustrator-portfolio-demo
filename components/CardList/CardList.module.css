@@ -1,0 +1,33 @@
+.list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: var(--padding);
+    width: 100%;
+    list-style: none;
+}
+
+.item {
+    border-radius: 10px;
+    overflow: hidden;
+    font-size: 0;
+  }  
+
+@media (max-width: 1200px) {
+    .list {      
+        grid-template-columns: repeat(3, auto);
+    }
+}
+
+@media (max-width: 860px) {
+    .list {      
+        grid-template-columns: repeat(2, auto);
+        gap: var(--padding-small);
+    }
+}
+
+@media (max-width: 520px) {
+    .list {      
+        grid-template-columns: repeat(1, auto);       
+    }
+}
+

@@ -3,6 +3,7 @@ import services from "@/content/services.json";
 import workOrder from "@/content/workOrder.json";
 import contacts from "@/content/contacts.json";
 import social from "@/content/social.json";
+import authorInfo from "@/content/info.json";
 import { MenuLinkData, Service, WorkData, ContactData, contactType, Social} from "@/interfaces";
 
 export function getMenu(): MenuLinkData {    
@@ -26,3 +27,7 @@ export function getContact(type: contactType): ContactData {
  export function getSocialLinks(): Social[] {     
     return social.links;
  }
+
+ export function getAuthorInfo(): string {     
+   return authorInfo.info;
+}
