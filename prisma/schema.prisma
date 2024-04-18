@@ -1,0 +1,94 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+model cover {
+  id              Int               @id @default(autoincrement())
+  title           String            @db.VarChar(255)
+  url             String            @default("./default.jpg") @db.VarChar(255)
+  coverAndTag     coverAndTag[]
+  coverList       coverList[]
+  firstPageCovers firstPageCovers[]
+}
+
+model coverAndTag {
+  coverId Int
+  tagId   Int
+  cover   cover @relation(fields: [coverId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "coverAndTag_ibfk_1")
+  tag     tag   @relation(fields: [tagId], references: [id], onDelete: Cascade, onUpdate: NoAction, map: "coverAndTag_ibfk_2")
+
+  @@id([coverId, tagId])
+  @@index([tagId], map: "coverAndTag_ibfk_2")
+}
+
+model coverList {
+  id      Int   @default(autoincrement())
+  coverId Int
+  cover   cover @relation(fields: [coverId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "coverList_ibfk_1")
+
+  @@id([id, coverId])
+  @@index([coverId], map: "coverList_ibfk_1")
+}
+
+model firstPageCovers {
+  id      Int   @default(autoincrement())
+  coverId Int
+  cover   cover @relation(fields: [coverId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "firstPageCovers_ibfk_1")
+
+  @@id([id, coverId])
+  @@index([coverId], map: "firstPageCovers_ibfk_1")
+}
+
+model firstPageIllustrations {
+  id             Int          @default(autoincrement())
+  illustrationId Int
+  illustration   illustration @relation(fields: [illustrationId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "firstPageIllustrations_ibfk_1")
+
+  @@id([id, illustrationId])
+  @@index([illustrationId], map: "firstPageIllustrations_ibfk_1")
+}
+
+model illustration {
+  id                                       Int                      @id @default(autoincrement())
+  seriaId                                  Int?
+  title                                    String                   @db.VarChar(255)
+  description                              String                   @db.Text
+  url                                      String                   @default("./default.jpg") @db.VarChar(255)
+  firstPageIllustrations                   firstPageIllustrations[]
+  seria_illustration_seriaIdToseria        seria?                   @relation("illustration_seriaIdToseria", fields: [seriaId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "illustration_ibfk_1")
+  illustrationList                         illustrationList[]
+  seria_seria_illustrationIdToillustration seria[]                  @relation("seria_illustrationIdToillustration")
+
+  @@index([seriaId], map: "seriaId")
+}
+
+model illustrationList {
+  id             Int          @default(autoincrement())
+  illustrationId Int
+  illustration   illustration @relation(fields: [illustrationId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "illustrationList_ibfk_1")
+
+  @@id([id, illustrationId])
+  @@index([illustrationId], map: "illustrationList_ibfk_1")
+}
+
+model seria {
+  id                                              Int            @id @default(autoincrement())
+  title                                           String         @db.VarChar(255)
+  description                                     String         @db.Text
+  illustrationId                                  Int
+  illustration_illustration_seriaIdToseria        illustration[] @relation("illustration_seriaIdToseria")
+  illustration_seria_illustrationIdToillustration illustration   @relation("seria_illustrationIdToillustration", fields: [illustrationId], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "seria_ibfk_1")
+
+  @@index([illustrationId], map: "illustrationId")
+}
+
+model tag {
+  id          Int           @id @default(autoincrement())
+  name        String        @db.VarChar(255)
+  coverAndTag coverAndTag[]
+}
