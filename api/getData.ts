@@ -78,6 +78,22 @@ export async function getIllustrution(first: number, last: number): Promise<Illu
   }).then(illustrationList => illustrationList.map(illustration => illustration.illustration));
 }
 
+// получение списка всех иллюстраций
+export async function getAllIllustrution(): Promise<Illustration[]> { 
+  return prisma.illustrationList.findMany({
+    select: {
+      illustration: {
+        select: {
+          id: true,
+          seriaId: true,
+          title: true,
+          url: true
+        }
+      }
+    }    
+  }).then(illustrationList => illustrationList.map(illustration => illustration.illustration));
+}
+
 
 // получение информации о конкретной иллюстрации по id
 export async function getIllustrutionInfo(id: number): Promise<Illustration | null> { 

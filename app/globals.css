@@ -108,3 +108,16 @@ body {
   justify-content: center;
   gap: var(--padding);
 }
+
+@media (max-width: 860px) {
+  .section {
+    padding: var(--padding) 0;
+  }
+}
+
+@media (max-width: 520px) {
+  .section {
+    gap: var(--padding-small);
+  }
+}
+
