@@ -1,7 +1,6 @@
 
 import { getContact, getServices } from "@/api/getStaticContent";
-import { Htag, Hero, Divider, ShortServices, Contact, CardList} from "@/components";
-
+import { Htag, Hero, Divider, ShortServices, Contact, MainIllustrations} from "@/components";
 
 
 export default function Home() {
@@ -17,10 +16,7 @@ export default function Home() {
           <Divider/>
           <ShortServices servicesList={servicesList}/>
           <Divider opt="right"/>
-          <section className="section">
-            <Htag tag="h2" opt="big">Иллюстрации</Htag>
-           < CardList/>
-          </section>
+          <MainIllustrations/>
           <Divider/>
           <Contact telegram={telegram} mail={mail}/> 
       </div>

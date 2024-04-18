@@ -20,3 +20,4 @@ export * from "./Contact/Contact";
 export * from "./WorkOrder/WorkOrder";
 export * from "./Card/Card";
 export * from "./CardList/CardList";
+export * from "./MainIllustrations/MainIllustrations";

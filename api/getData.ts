@@ -7,7 +7,7 @@ const prisma = new PrismaClient();
 
 
 // завершение соединения с базой
-export async function disconnect()  {
+export async function bdDisconnect()  {
   await prisma.$disconnect();
 }
 
