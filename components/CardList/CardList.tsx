@@ -4,15 +4,20 @@ import styles from "./CardList.module.css";
 import cn from "classnames";
 import { Card } from "@/components";
 
-export const CardList = ({ cardList, className, ...props }: ContactProps): JSX.Element => {
-  return (
+export const CardList = ({ seriaDecor=false, cardList, className, ...props }: ContactProps): JSX.Element => {
+   return (
     <ul className={cn(styles.list, className)} {...props}>
       {
-        cardList && cardList.map(card => (
-          <li className={styles.item} key={card.id}>
-            <Card title={card.title} seria={card.seriaId == null ? false : true} src={card.url} href='' />
+        cardList && cardList.map(card => {
+          const isSeria = card.seriaId == null ? false : true;
+          return (
+          <li className={cn(styles.item,  {
+            [styles.decor] : isSeria&&seriaDecor
+          })} key={card.id}>
+            <Card title={card.title} seria={isSeria} src={card.url} href='' />
           </li>
-        ))
+          ); 
+        }) 
       }
     </ul>
   );

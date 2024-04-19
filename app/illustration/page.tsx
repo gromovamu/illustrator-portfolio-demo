@@ -24,6 +24,8 @@ export default async function Home() {
         </DescriptionCard>          
     </section>
     <Divider/>
-    <CardList cardList={illustrationsList} />
+    <section className={cn("section")}>
+      <CardList seriaDecor={true} cardList={illustrationsList} />
+    </section>
   </div>);
 }

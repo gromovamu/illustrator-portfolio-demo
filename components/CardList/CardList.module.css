@@ -12,6 +12,11 @@
     font-size: 0;
   }  
 
+.decor {
+    box-shadow: 7px 7px 0 0 var(--decor-light-color),
+                14px 14px 0 0 var(--decor-block-color);
+}
+
 @media (max-width: 1200px) {
     .list {      
         grid-template-columns: repeat(3, auto);
