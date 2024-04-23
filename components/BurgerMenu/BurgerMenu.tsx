@@ -8,7 +8,7 @@ import Link from "next/link";
 import { Logo, BurgerButton } from "@/components";
 import { useState } from "react";
 import { useSpring, animated } from '@react-spring/web';
-import { easings } from '@react-spring/web'
+import { easings } from '@react-spring/web';
 
 export const BurgerMenu = ({ menu, className, ...props }: BurgerMenuProps): JSX.Element => {
   const [isOpenMode, setIsOpenMode] = useState<boolean>(false);

@@ -22,3 +22,5 @@ export * from "./Card/Card";
 export * from "./CardList/CardList";
 export * from "./DescriptionCard/DescriptionCard";
 export * from "./MainIllustrations/MainIllustrations";
+export * from "./IllustrationDetails/IllustrationDetails";
+export * from "./NextPrevBlock/NextPrevBlock";

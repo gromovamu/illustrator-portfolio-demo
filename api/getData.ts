@@ -176,15 +176,24 @@ export async function getCoverInfo(id: number): Promise<Cover | null> {
 // очень громоздко, нужно понять как переделать
 
 
+// получение списка id всех иллюстраций без серии ( для статической генерации соответсвующих страниц)
+export async function getNoSeriaIllustrationIdList(): Promise<{id:number}[]> { 
+  return prisma.illustration.findMany({
+    select: {
+      id: true    
+    },
+    where: { 
+      seriaId : null,
+    },
+  });
+}
 
+// получение списка id всех серий ( для статической генерации соответсвующих страниц)
+export async function getSeriaIdList(): Promise<{id:number}[]> { 
+  return prisma.seria.findMany({
+    select: {
+      id: true    
+    }   
+  });
+}
 
-/*prismaMain()
-  .then(async () => {
-    await prisma.$disconnect();
-    console.log("Prisma client end");
-  })
-  .catch(async (e) => {
-    console.error(e)
-    await prisma.$disconnect()
-    process.exit(1)
-  })*/

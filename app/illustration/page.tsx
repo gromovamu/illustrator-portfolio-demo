@@ -4,7 +4,7 @@ import { getillustrationInfo } from "@/api/getStaticContent";
 import { Divider, Htag, CardList, DescriptionCard, InlineLink, Text} from "@/components";
 import cn from "classnames";
 
-export default async function Home() {
+export default async function IllustrationsListPage() {
   const info = getillustrationInfo(); 
   const illustrationsList = await getAllIllustrution().catch(async (e) => {
     console.error(e);

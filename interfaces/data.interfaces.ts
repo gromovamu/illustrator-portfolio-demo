@@ -23,3 +23,17 @@ export interface Seria {
     urlCover: string;
 }
 
+export interface IllustrationData { 
+    url: string;
+    details: IllustrationDetail[];
+}
+
+export interface IllustrationDetail{    
+    name: string;
+    data: string;
+    type: 'decor'|'text';
+}
+
+
+
+

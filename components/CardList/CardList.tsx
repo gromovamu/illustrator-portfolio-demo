@@ -1,10 +1,10 @@
 'use client';
-import { ContactProps } from "./CardList.props";
+import { CardListProps } from "./CardList.props";
 import styles from "./CardList.module.css";
 import cn from "classnames";
 import { Card } from "@/components";
 
-export const CardList = ({ seriaDecor=false, cardList, className, ...props }: ContactProps): JSX.Element => {
+export const CardList = ({ seriaDecor, cardList, className, ...props }: CardListProps): JSX.Element => {
    return (
     <ul className={cn(styles.list, className)} {...props}>
       {

@@ -14,7 +14,7 @@ export const MainIllustrations = async ({ className, ...props }: MainIllustratio
   return (
     <section className={cn("section", className)} {...props}>
       <Htag tag="h2" opt="big">Иллюстрации</Htag>
-      < CardList cardList={illustrationsList} />
+      < CardList seriaDecor={false} cardList={illustrationsList} />
     </section>
   );
 };
