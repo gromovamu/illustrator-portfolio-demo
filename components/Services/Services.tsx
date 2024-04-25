@@ -1,7 +1,7 @@
 import { ServicesProps } from "./Services.props";
 import styles from "./Services.module.css";
 import cn from "classnames";
-import { ServiceCard, Htag, LinkButton } from "@/components";
+import { ServiceCard, Htag } from "@/components";
 
 export const Services = ({ servicesList, className, ...props }: ServicesProps): JSX.Element => {
   return (
@@ -12,6 +12,5 @@ export const Services = ({ servicesList, className, ...props }: ServicesProps): 
           <ServiceCard key={service.id} iconSrc={service.iconSrc} title={service.title} text={service.text ?? []} />
         ))}
       </div>
-      <LinkButton href="#">Подробнее</LinkButton>
     </section>);
 };

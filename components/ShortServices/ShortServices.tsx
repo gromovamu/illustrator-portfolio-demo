@@ -12,6 +12,6 @@ export const ShortServices = ({ servicesList, className, ...props }: ShortServic
           <ShortServiceCard key={service.id} iconSrc={service.iconSrc} title={service.title} descr={service.descr} />
         ))}
       </div>
-      <LinkButton href="#">Подробнее</LinkButton>
+      <LinkButton href="/services">Подробнее</LinkButton>
     </section>);
 };
