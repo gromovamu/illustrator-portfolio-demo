@@ -62,6 +62,10 @@
     text-align: end;
 }
 
+.disable {
+    visibility: hidden;
+}
+
 
 @media (max-width: 520px) {
     .block {

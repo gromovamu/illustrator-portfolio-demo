@@ -13,6 +13,7 @@ export interface Illustration {
     title: string;
     url: string;
     description?: string;
+    href?: string;
 }
 
 

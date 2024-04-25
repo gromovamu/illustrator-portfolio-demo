@@ -7,7 +7,7 @@ export default function NotFound() {
         <Image 
           fill
           priority={true}
-          src='img/main/error404.svg'
+          src='/img/main/error404.svg'
           alt='404| Страница не найдена' />
       </div>
     </div>

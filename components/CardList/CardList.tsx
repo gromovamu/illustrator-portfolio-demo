@@ -14,7 +14,7 @@ export const CardList = ({ seriaDecor, cardList, className, ...props }: CardList
           <li className={cn(styles.item,  {
             [styles.decor] : isSeria&&seriaDecor
           })} key={card.id}>
-            <Card title={card.title} seria={isSeria} src={card.url} href='' />
+            <Card title={card.title} seria={isSeria} src={card.url} href={card.href??''} />
           </li>
           ); 
         }) 

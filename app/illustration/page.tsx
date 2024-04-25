@@ -1,16 +1,12 @@
 
-import { getAllIllustrution, bdDisconnect } from "@/api/getData";
+import { getSavedIllustrutionList } from "@/api/getData";
 import { getillustrationInfo } from "@/api/getStaticContent";
 import { Divider, Htag, CardList, DescriptionCard, InlineLink, Text} from "@/components";
 import cn from "classnames";
 
-export default async function IllustrationsListPage() {
+export default async function IllustrationsListPage() { 
   const info = getillustrationInfo(); 
-  const illustrationsList = await getAllIllustrution().catch(async (e) => {
-    console.error(e);
-    return [];
-  });
-  await bdDisconnect();  
+  const illustrationsList = await getSavedIllustrutionList();
 
   return (<div className="container">
      <Htag tag='h1'>Иллюстратор Громова Мария</Htag>

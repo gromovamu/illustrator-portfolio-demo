@@ -1,7 +1,9 @@
-import {DetailedHTMLProps, HTMLAttributes} from "react";
+import { DetailedHTMLProps, HTMLAttributes } from "react";
 
 export interface NextPrevBlockProps extends DetailedHTMLProps<HTMLAttributes<HTMLHRElement>, HTMLHRElement> {
-   nextUrl: string;
-   prevUrl: string;
- }  
+  urlData: {
+    prev: string | null;
+    next: string | null;
+  };
+}
 

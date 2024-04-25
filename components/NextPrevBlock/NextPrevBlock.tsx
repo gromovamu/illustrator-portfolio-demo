@@ -6,13 +6,17 @@ import NextIcon from "@/public/img/svg/navBtnNextIcon.svg";
 import PrevIcon from "@/public/img/svg/navBtnPrevIcon.svg";
 import { decorFont } from "@/fonts/fonts";
 
-export const NextPrevBlock = ({ nextUrl, prevUrl, className, ...props }: NextPrevBlockProps): JSX.Element => {
+export const NextPrevBlock = ({ urlData, className, ...props }: NextPrevBlockProps): JSX.Element => {
   return (<div className={cn(styles.block, decorFont.className, className)} {...props}>
-    <Link className={cn(styles.link, styles.prev)} href={prevUrl}>
+    <Link className={cn(styles.link, styles.prev, {
+      [styles.disable]: urlData.prev === null
+    })} href={urlData.prev??''}>
       <PrevIcon className={styles.icon} />
       <span>Предыдущая работа</span>
-    </Link>
-    <Link className={cn(styles.link, styles.next)}  href={nextUrl}>
+    </Link>    
+    <Link className={cn(styles.link, styles.next, {
+      [styles.disable]: urlData.next === null
+    })} href={urlData.next??''}>
       <span>Следующая работа</span>
       <NextIcon className={styles.icon} />
     </Link>
