@@ -6,7 +6,6 @@ import { notFound } from "next/navigation";
 
 // функция возвращает список параметров для статической генерации страниц по указанным параметрам
 export async function generateStaticParams() {
-  console.log('generateStaticParams');
   const illustrationList = await getNoSeriaIllustrationIdList();
   await bdDisconnect(); //TODO: решить куда перенести, где в next конец работы со статической генерацией
   return illustrationList.map(item => ({ alias: item.id.toString() }));

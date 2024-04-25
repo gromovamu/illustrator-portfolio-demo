@@ -1,7 +1,7 @@
 
 
 import { PrismaClient } from '@prisma/client';
-import { Cover, Illustration, IllustrationData, Seria} from '@/interfaces/data.interfaces';
+import { Cover, Illustration, IllustrationData, Seria } from '@/interfaces/data.interfaces';
 
 const prisma = new PrismaClient();
 
@@ -33,9 +33,8 @@ const getIllustrationArr = (illustrationList: IllustrationResult[]): Illustratio
     }));
 };
 
-
 const errorGetEmptyList = async (e: Error) => {
-  console.error(e);    
+  console.error(e);
   return [];
 };
 
@@ -99,15 +98,15 @@ export async function getAllIllustrution(): Promise<Illustration[]> {
   }).then(getIllustrationArr);
 }
 
-let savedIllustrutionList:Illustration[] = [];
+let savedIllustrutionList: Illustration[] = [];
 // получение списка всех иллюстраций из сохраненного массива
 // если маасив пуст то загружает данные из базы или возращает текущий сохранееный список 
 export async function getSavedIllustrutionList(): Promise<Illustration[]> {
-  if(savedIllustrutionList.length === 0) {   
+  if (savedIllustrutionList.length === 0) {
     return getAllIllustrution().then(list => {
-      savedIllustrutionList = list;      
+      savedIllustrutionList = list;
       return list;
-    }).catch(errorGetEmptyList);    
+    }).catch(errorGetEmptyList);
   }
   return savedIllustrutionList;
 }
@@ -148,12 +147,6 @@ export async function getSeriaInfo(id: number): Promise<Seria | null> {
 // получение списка иллюстраций входящих в серию по id серии
 export async function getSeria(id: number): Promise<Illustration[]> {
   return prisma.illustration.findMany({
-    select: {
-      id: true,
-      seriaId: true,
-      title: true,
-      url: true
-    },
     where: {
       seriaId: id,
     },
@@ -202,7 +195,7 @@ export async function getNoSeriaIllustrationIdList(): Promise<{ id: number }[]> 
     where: {
       seriaId: null,
     },
-  }).catch(errorGetEmptyList);  
+  }).catch(errorGetEmptyList);
 }
 
 // получение списка id всех серий ( для статической генерации соответсвующих страниц)
@@ -211,36 +204,47 @@ export async function getSeriaIdList(): Promise<{ id: number }[]> {
     select: {
       id: true
     }
-  });
+  }).catch(errorGetEmptyList);
 }
 
 //TODO: КЭШ в запросах к базе разобраться и настроить в prisma запросах
 
+function formLinksPrevNext(num: number, arr: Illustration[]) {
+  if (num === 0) {
+    return { prev: null, next: arr[1].href ?? null };
+  }
+  if (num === arr.length - 1) {
+    return { prev: arr[num - 1].href ?? null, next: null };
+  }
+  return { prev: arr[num - 1].href ?? null, next: arr[num + 1].href ?? null };
+}
 
 export function getLinksPrevNext(id: number, arr: Illustration[]): { prev: string | null, next: string | null } | null {
-  console.log('getLinksPrevNext');
   const num = arr.findIndex((item) => item.id === id);
-  console.log(num);
   if (num !== -1) {
-      if (num === 0) {
-          return { prev: null, next: arr[1].href ?? null };
-      }
-      if (num === arr.length - 1) {
-          return { prev: arr[num - 1].href ?? null, next: null };
-      }
-      return { prev: arr[num - 1].href ?? null, next: arr[num + 1].href ?? null };
+    return formLinksPrevNext(num, arr);
   }
   return null;
 }
 
+export function getLinksPrevNextBySeria(id: number, arr: Illustration[]): { prev: string | null, next: string | null } | null {
+  const num = arr.findIndex((item) => item.seriaId === id);
+  if (num !== -1) {
+    return formLinksPrevNext(num, arr);
+  }
+  return null;
+}
+
+
+
 export function generatePageLink(illustration: Illustration) {
   return illustration.seriaId === null ? `/illustration/${illustration.id.toString()}` :
-  `/illustration/seria/${illustration.seriaId.toString()}`;
+    `/illustration/seria/${illustration.seriaId.toString()}`;
 }
 
 // преобразование объекта Illustration в объект IllustrationData
-function formIllustrationData(info:Illustration):IllustrationData {
-  return  {
+function formIllustrationData(info: Illustration): IllustrationData {
+  return {
     url: info.url,
     details: [{
       name: "Название",
@@ -259,9 +263,14 @@ function formIllustrationData(info:Illustration):IllustrationData {
 // получение информации о иллюстрации по id в виде объекта со списком свойств
 export async function getIllustrationData(id: number): Promise<IllustrationData | null> {
   return getIllustrutionInfo(id).then(info => {
-    return info === null? null : formIllustrationData(info); 
+    return info === null ? null : formIllustrationData(info);
   }).catch(async (e: Error) => {
-    console.error(e);    
+    console.error(e);
     return null;
-  });  
+  });
+}
+
+// получение информации о каждой иллюстрации серии по id серии в виде  массива объектов со списком свойств
+export async function getSeriaDataList(id: number): Promise<IllustrationData[]> {
+  return getSeria(id).then(infoList => infoList.map(info => formIllustrationData(info))).catch(errorGetEmptyList);
 }
