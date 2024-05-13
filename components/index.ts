@@ -24,3 +24,7 @@ export * from "./DescriptionCard/DescriptionCard";
 export * from "./MainIllustrations/MainIllustrations";
 export * from "./IllustrationDetails/IllustrationDetails";
 export * from "./NextPrevBlock/NextPrevBlock";
+export * from "./Seria/Seria";
+export * from "./ImgButton/ImgButton";
+export * from "./ArrowButton/ArrowButton";
+

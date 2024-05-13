@@ -1,7 +1,7 @@
 
 
 import { PrismaClient } from '@prisma/client';
-import { Cover, Illustration, IllustrationData, Seria } from '@/interfaces/data.interfaces';
+import { Cover, Illustration, IllustrationData, IllustrationDetail, Seria } from '@/interfaces/data.interfaces';
 
 const prisma = new PrismaClient();
 
@@ -258,6 +258,26 @@ function formIllustrationData(info: Illustration): IllustrationData {
     }
     ]
   };
+}
+
+// получение информации о серии в виде массива со списком свойств
+export function getSeriaInfoDetails(seria: Seria): IllustrationDetail[] {
+  return [{
+    name: "Название серии",
+    data: seria.title,
+    type: 'decor'
+  },
+  {
+    name: "Описание серии",
+    data: seria.description,
+    type: 'text'
+  }
+  ];
+}
+
+export function getPropertyInfoDetail(property: string, array: IllustrationDetail[]): string {
+  const res = array.filter(prop => prop.name === property);
+  return (res.length == 0) ? '' : res[0].data;
 }
 
 // получение информации о иллюстрации по id в виде объекта со списком свойств

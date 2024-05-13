@@ -1,0 +1,35 @@
+.button {
+  --button-color-hover: var(--nav-color);
+  --button-color-focus: var(--nav-color-focus);
+  --button-color-active: var(--nav-color-active);
+
+  display: flex;
+  bottom: 50%;
+  color: var(--nav-color-hover );
+  transition: color 0.3s ease-in-out;
+}
+
+.right {
+  transform: rotate(180deg);
+}
+
+.svg {
+  display: block;
+  color: inherit;
+  width: 18px;
+  height: 36px;
+  fill: currentColor;  
+}
+
+.button:focus-visible {
+  color: var(--button-color-focus); 
+  outline: none;
+}
+
+.button:hover {
+  color: var(--button-color-hover);
+}
+
+.button:active {
+  color: var(--button-color-active);
+}
