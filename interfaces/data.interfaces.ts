@@ -24,7 +24,8 @@ export interface Seria {
     urlCover: string;
 }
 
-export interface IllustrationData { 
+export interface IllustrationData {
+    id: number; 
     url: string;
     details: IllustrationDetail[];
 }

@@ -245,6 +245,7 @@ export function generatePageLink(illustration: Illustration) {
 // преобразование объекта Illustration в объект IllustrationData
 function formIllustrationData(info: Illustration): IllustrationData {
   return {
+    id: info.id,
     url: info.url,
     details: [{
       name: "Название",

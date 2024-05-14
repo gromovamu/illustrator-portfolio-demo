@@ -4,7 +4,7 @@ import cn from "classnames";
 import Image from 'next/image';
 import { decorFont, textFont } from "@/fonts/fonts";
 
-export const IllustrationDetails = ({ data, className, ...props }: IllustrationDetailsProps): JSX.Element => {
+export const IllustrationDetails = ({ data, nav, children, className, ...props }: IllustrationDetailsProps): JSX.Element => {
   return (
     <div className={cn(styles.info, className)} {...props}>
       <div className={styles.container}>
@@ -14,12 +14,13 @@ export const IllustrationDetails = ({ data, className, ...props }: IllustrationD
           unoptimized
           src={data.url}
           alt='' />
+          {nav==true && children}
       </div>
 
       <ul className={cn(styles.properties)}>
         {
-          data && data.details.map(detail => (
-            <li className={styles.property} key={detail.name}>
+          data && data.details.filter(detail => detail.data !== '').map((detail, i) =>(
+            <li className={styles.property} key={`${data.id}_prop_${i}`}>             
               <p className={cn(styles.name, decorFont.className)}>
                 {detail.name}:
               </p>

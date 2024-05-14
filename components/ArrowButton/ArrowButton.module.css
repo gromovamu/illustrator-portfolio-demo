@@ -4,7 +4,6 @@
   --button-color-active: var(--nav-color-active);
 
   display: flex;
-  bottom: 50%;
   color: var(--nav-color-hover );
   transition: color 0.3s ease-in-out;
 }

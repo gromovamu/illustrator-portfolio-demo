@@ -8,35 +8,44 @@ import { getPropertyInfoDetail, getSeriaInfoDetails } from "@/api/getData";
 import { useRef } from 'react';
 
 export const Seria = ({ seria, illustrationDataList, className, ...props }: SeriaProps): JSX.Element => {
-  const [activeSlide, setActiveSlide] = useState(0);
+  const [activeImg, setActiveImg] = useState(0);
   const refData = useRef(null);
 
   const seriaDetail = getSeriaInfoDetails(seria);
   const getData = (index: number) => {
     const infoObj = illustrationDataList[index];
-    return { url: infoObj.url, details: [...seriaDetail, ...infoObj.details] };
+    return { id: infoObj.id, url: infoObj.url, details: [...seriaDetail, ...infoObj.details] };
+  };
+
+  const onClick = (activeImgNum: number) => {
+    setActiveImg(activeImgNum);
+    if(window.innerWidth>520) {
+      window.scrollTo(0, 0);
+    }   
   };
 
   return (
     <div className={cn(styles.seria, className)} {...props}>
       <div className={styles.data} ref={refData}>
-        <IllustrationDetails data={getData(activeSlide)} />
-        <ArrowButton className={cn(styles.arrow, styles.left)}
-          opt="left"
-          onClick={() => setActiveSlide(activeSlide - 1)}
-          disabled={activeSlide === 0} />
-        <ArrowButton className={cn(styles.arrow, styles.right)}
-          opt="right"
-          onClick={() => setActiveSlide(activeSlide + 1)}
-          disabled={activeSlide === (illustrationDataList.length - 1)} />
+        <IllustrationDetails data={getData(activeImg)} nav={true}>
+          <ArrowButton className={cn(styles.arrow, styles.left)}
+            opt="left"
+            onClick={() => onClick(activeImg - 1)}
+            disabled={activeImg === 0} />
+          <ArrowButton className={cn(styles.arrow, styles.right)}
+            opt="right"
+            onClick={() => onClick(activeImg + 1)}
+            disabled={activeImg === (illustrationDataList.length - 1)} />
+        </IllustrationDetails>
       </div>
+
       <div className={styles.container}>
         {illustrationDataList.map((img, i) => (
           <ImgButton key={`${seria.id}_${i}`}
             className={styles.card}
             imgUrl={img.url}
             alt={getPropertyInfoDetail('Название', img.details)}
-            onClick={() => setActiveSlide(i)} />
+            onClick={() => onClick(i)} />
         ))}
       </div>
     </div>
@@ -50,7 +59,7 @@ export const Seria = ({ seria, illustrationDataList, className, ...props }: Seri
             <ImgButton key={`${seria.id}_${i}`}
               className="keen-slider__slide"
               imgUrl={img.url} 
-              onClick={() => setActiveSlide(i)}/>))}
+              onClick={() => setActiveImg(i)}/>))}
         </div>
       </div>
       */

@@ -10,7 +10,8 @@
 }
 
 .arrow {
-    display: none;
+    position: absolute;
+    visibility: hidden;
 }
 
 .container {
@@ -39,11 +40,11 @@
     .container {      
         display: none;
     }
-
-    .arrow {
-        display: block;
+    
+    .arrow {     
         position: absolute;
-        bottom: 50%;
+        visibility: visible;
+        bottom: calc(50% - 18px);      
     }
 
     .arrow:disabled {
