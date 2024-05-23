@@ -25,9 +25,6 @@ export default async function SeriaDetailPage({ params }: { params: { alias: str
   const illustrationsList = await getSavedIllustrutionList();
   const nextPrevUrl = getLinksPrevNextBySeria(seriaId, illustrationsList);
 
-  console.log(seriaInfo);
-  console.log(illustrationDataList);
-
   return (<div className="container">
     <div className="section">    
       <Seria seria={seriaInfo} illustrationDataList={illustrationDataList}></Seria>

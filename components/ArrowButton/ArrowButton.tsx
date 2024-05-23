@@ -12,3 +12,4 @@ export const ArrowButton = ({ opt, className, ...props }: ArrowButtonProps): JSX
     </button>);
 };
 
+//TODO: возможно размеры стоит как-то задавать извне, чтобы компонент был более универсальный, обдумать

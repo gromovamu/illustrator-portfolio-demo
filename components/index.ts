@@ -27,4 +27,7 @@ export * from "./NextPrevBlock/NextPrevBlock";
 export * from "./Seria/Seria";
 export * from "./ImgButton/ImgButton";
 export * from "./ArrowButton/ArrowButton";
+export * from "./Cover/Cover";
+export * from "./CoverSlider/CoverSlider";
+export * from "./MainCovers/MainCovers";
 

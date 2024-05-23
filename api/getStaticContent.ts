@@ -5,6 +5,8 @@ import contacts from "@/content/contacts.json";
 import social from "@/content/social.json";
 import authorInfo from "@/content/info.json";
 import illustrationInfo from "@/content/illustrationInfo.json";
+import coverInfo from "@/content/coverInfo.json";
+
 import { MenuLinkData, Service, WorkData, ContactData, contactType, Social } from "@/interfaces";
 
 export function getMenu(): MenuLinkData {
@@ -36,4 +38,8 @@ export function getAuthorInfo(): string {
 
 export function getillustrationInfo(): string {
    return illustrationInfo.info;
+}
+
+export function getCoversInfo(): string {
+   return coverInfo.info;
 }
