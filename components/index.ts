@@ -30,4 +30,5 @@ export * from "./ArrowButton/ArrowButton";
 export * from "./Cover/Cover";
 export * from "./CoverSlider/CoverSlider";
 export * from "./MainCovers/MainCovers";
+export * from "./CoverInfo/CoverInfo";
 

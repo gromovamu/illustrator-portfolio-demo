@@ -78,6 +78,15 @@ export async function getCovers(first: number, last: number): Promise<Cover[]> {
   }).then(coverList => coverList.map(cover => cover.cover));
 }
 
+//  получение списка всех обложек
+export async function getAllCovers(): Promise<Cover[]> {
+  return prisma.coverList.findMany({
+    select: {
+      cover: true
+    },  
+  }).then(coverList => coverList.map(cover => cover.cover));
+}
+
 // получение списка иллюстраций по порядковым номерам (порядок вывода на экран задан в отдельной таблице)
 export async function getIllustrution(first: number, last: number): Promise<Illustration[]> {
   return prisma.illustrationList.findMany({

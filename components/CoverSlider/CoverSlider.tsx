@@ -43,12 +43,13 @@ export const CoverSlider = ({ coverList, setActive, className, ...props }: Cover
   });
 
   //console.log(coverList);
-  console.log(instanceRef);
+  //console.log(instanceRef);
+
 
   return (
     <div className={cn("slider-container", styles.container, className)} {...props}>
       <div className={cn("navigation-wrapper", styles.wrapper)}>
-      <ArrowButton className={cn(styles.arrow, styles.left)}
+        <ArrowButton className={cn(styles.arrow, styles.left)}
           opt="left"
           onClick={() => instanceRef.current?.prev()}
         />
@@ -56,7 +57,7 @@ export const CoverSlider = ({ coverList, setActive, className, ...props }: Cover
         <div ref={sliderRef} className="keen-slider">
           {coverList && coverList.map((cover, index) => (
             <Cover key={`cover_${cover.id}`} className="keen-slider__slide" num={cover.id} src={cover.url}
-              onClick={() => setActive && setActive(cover.id, index)} />
+              onClick={((e) => {e.preventDefault(); console.log('preventDefault!!'); setActive&&setActive(index);})} />
           ))}
         </div>
 

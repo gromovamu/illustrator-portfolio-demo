@@ -1,29 +1,25 @@
 
-'use client';
-import { getCoverInfo } from "@/api/getData";
-import { getServices, getWorkOrder } from "@/api/getStaticContent";
-import { DescriptionCard, Divider, Htag, Text } from "@/components";
-import { usePathname } from 'next/navigation';
+import { getAllCovers } from "@/api/getData";
+import { getCoversInfo } from "@/api/getStaticContent";
+import { CoverInfo, DescriptionCard, Divider, Htag, Text } from "@/components";
 
-export default function Home() {
-  const path = usePathname();    
-  console.log(path);
- const info = getCoverInfo(); 
-  const illustrationsList = await getSavedIllustrutionList();
+import cn from "classnames";
+
+export default async function Home() {
+ const info = getCoversInfo(); 
+  const coversList = await getAllCovers();
 
   return (<div className="container">
-     <Htag tag='h1'>Иллюстратор Громова Мария</Htag>
+     <Htag tag='h1'>Иллюстратор Громова Мария. Обложки на заказ</Htag>
      <section className={cn("section")}>
-        <Htag tag="h2" opt="big">Иллюстрации</Htag>
-        <DescriptionCard iconSrc="/img/svg/illustrationIcon.svg">  
-          <Text>
-            
-          </Text>          
+        <Htag tag="h2" opt="big">Обложки</Htag>
+        <DescriptionCard iconSrc="/img/svg/coverIcon.svg">  
+          <Text>{info}</Text>          
         </DescriptionCard>          
     </section>
     <Divider/>
-    <section className={cn("section")}>
-      <CardList seriaDecor={true} cardList={illustrationsList} />
-    </section>
+    <CoverInfo  className={"section"} coversList={coversList}/>   
   </div>);
 }
+
+//TODO: использование заголовков h1 переделать
