@@ -4,11 +4,13 @@ import cn from "classnames";
 import Link from "next/link";
 import Image from 'next/image';
 
-export const Cover = ({ num, src, className, ...props }: CoverProps): JSX.Element => {
+export const Cover = ({ src, className, num, ...props }: CoverProps): JSX.Element => {
   return (
-    <Link className={cn(styles.cover, className)}
-      href={{ pathname: '/covers', query: { num: num.toString() } }}
+    <Link className={cn(styles.cover, className)}      
+      href = {{ pathname: '/covers', query: { num: num.toString() } }}
+      scroll={false}
       {...props}>
+      
       <Image className={styles.img}
         width={210}
         height={305}
@@ -22,3 +24,4 @@ export const Cover = ({ num, src, className, ...props }: CoverProps): JSX.Elemen
 
 //TODO:unoptimized - в Image временно, пока не разберусь с загрузчиком в режиме export
 // TODO: разобратьс с тем что писать/ не писать в alt
+//href={{ pathname: '/covers', query: { num: num.toString() } }}

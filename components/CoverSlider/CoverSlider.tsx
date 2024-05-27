@@ -57,7 +57,7 @@ export const CoverSlider = ({ coverList, setActive, className, ...props }: Cover
         <div ref={sliderRef} className="keen-slider">
           {coverList && coverList.map((cover, index) => (
             <Cover key={`cover_${cover.id}`} className="keen-slider__slide" num={cover.id} src={cover.url}
-              onClick={((e) => {e.preventDefault(); console.log('preventDefault!!'); setActive&&setActive(index);})} />
+              onClick={() => setActive&&setActive(index)} />
           ))}
         </div>
 

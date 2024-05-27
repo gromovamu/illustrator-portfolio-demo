@@ -1,0 +1,15 @@
+.imgContainer {
+    overflow: hidden;
+    border-radius: 10px;
+    font-size: 0;
+}
+
+
+.tags {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+    color: var(--nav-color);
+    font-size: 26px;
+    line-height: 110%;
+}
