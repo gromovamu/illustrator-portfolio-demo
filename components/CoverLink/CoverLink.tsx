@@ -1,13 +1,13 @@
-import { CoverProps } from "./Cover.props";
-import styles from "./Cover.module.css";
+import { CoverLinkProps } from "./CoverLink.props";
+import styles from "./CoverLink.module.css";
 import cn from "classnames";
 import Link from "next/link";
 import Image from 'next/image';
 
-export const Cover = ({ src, className, num, ...props }: CoverProps): JSX.Element => {
+export const CoverLink = ({ srcImg, url, className, ...props }: CoverLinkProps): JSX.Element => {
   return (
     <Link className={cn(styles.cover, className)}      
-      href = {{ pathname: '/covers', query: { num: num.toString() } }}
+      href = {url??''}
       scroll={false}
       {...props}>
       
@@ -15,7 +15,7 @@ export const Cover = ({ src, className, num, ...props }: CoverProps): JSX.Elemen
         width={210}
         height={305}
         unoptimized
-        src={src}
+        src={srcImg}
         alt='' />
     </Link>
   );
