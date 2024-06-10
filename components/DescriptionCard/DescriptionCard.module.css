@@ -3,6 +3,7 @@
     grid-template-columns: auto auto 1fr;
     gap: 0 var(--padding);
     width: 80%;
+    align-items: center;
 }
 
 .icon {

@@ -1,6 +1,6 @@
 .button {
   --button-color-hover: var(--nav-color);
-  --button-color-focus: var(--nav-color-focus);
+  --button-color-focus: var(--decor-color); /*--nav-color-focus*/
   --button-color-active: var(--nav-color-active);
 
   display: flex;

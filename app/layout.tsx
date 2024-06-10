@@ -18,7 +18,7 @@ export default function RootLayout({
   return (   
     <html lang="ru">      
       <body className="body">
-      <Header/>
+      <Header id="header"/>
         {children}
       <Footer socialLinkList={socialLinkList}/>
       </body>
