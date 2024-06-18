@@ -2,19 +2,12 @@
 import { MainIllustrationsProps } from "./MainIllustrations.props";
 import cn from "classnames";
 import { LinkButton, CardList, Htag } from "@/components";
-import { getMainPageIllustrations, bdDisconnect } from "@/api/getData";
 
-
-export const MainIllustrations = async ({ className, ...props }: MainIllustrationsProps): Promise<JSX.Element> => {
-  const illustrationsList = await getMainPageIllustrations().catch(async (e) => {
-    console.error(e);
-    return [];
-  });
-  await bdDisconnect();  
+export const MainIllustrations = async ({ illustrationsList, className, ...props }: MainIllustrationsProps): Promise<JSX.Element> => {
   return (
     <section className={cn("section", className)} {...props}>
       <Htag tag="h2" opt="big">Иллюстрации</Htag>
-      < CardList seriaDecor={false} cardList={illustrationsList} />
+      <CardList seriaDecor={false} cardList={illustrationsList} />
       <LinkButton href="/illustration">Подробнее</LinkButton>
     </section>
   );

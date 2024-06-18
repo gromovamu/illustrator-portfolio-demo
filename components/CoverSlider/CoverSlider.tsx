@@ -5,11 +5,12 @@ import styles from "./CoverSlider.module.css";
 import cn from "classnames";
 
 import 'keen-slider/keen-slider.min.css';
-import { useKeenSlider } from 'keen-slider/react'; 
-import { CoverLink } from "@/components";
+import { useKeenSlider } from 'keen-slider/react';
 import { ArrowButton } from "@/components";
+import Image from 'next/image';
 
-export const CoverSlider = ({ coverList, getUrl, className, ...props }: CoverSliderProps): JSX.Element => {
+
+export const CoverSlider = ({ coverList, className, ...props }: CoverSliderProps): JSX.Element => {
   // const [loaded, setLoaded] = useState(false);
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     initial: 0,
@@ -42,10 +43,15 @@ export const CoverSlider = ({ coverList, getUrl, className, ...props }: CoverSli
 
         <div ref={sliderRef} className="keen-slider">
           {coverList && coverList.map((cover) => (
-            <CoverLink key={`cl_${cover.id}`} className="keen-slider__slide"
-              srcImg={cover.url} url={getUrl?getUrl(cover.id):''}
-               />
-          ))} 
+            <div key={`cMi_${cover.id}`} className={cn("keen-slider__slide", styles.cover)}>
+              <Image className={styles.img}
+                width={210}
+                height={305}
+                unoptimized
+                src={cover.url}
+                alt='' />
+            </div>
+          ))}
         </div>
 
         <ArrowButton className={cn(styles.arrow, styles.right)}

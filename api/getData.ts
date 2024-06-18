@@ -52,14 +52,14 @@ export async function getMainPageCovers(): Promise<Cover[]> {
     }
   }).then((coverList) => {
     return coverList.map(cover => cover.cover);
-  });
+  }).catch(errorGetEmptyList);
 }
 
 //  получение списока иллюстраций для главной страницы
 export async function getMainPageIllustrations(): Promise<Illustration[]> {
   return prisma.firstPageIllustrations.findMany({
     select: selectIllustration
-  }).then(getIllustrationArr);
+  }).then(getIllustrationArr).catch(errorGetEmptyList);
 }
 
 

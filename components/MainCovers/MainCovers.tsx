@@ -1,24 +1,14 @@
-
+'use client';
 import { MainCoversProps } from "./MainCovers.props";
 import cn from "classnames";
-import { LinkButton, Htag, CoverSlider } from "@/components";
-import { getMainPageCovers, bdDisconnect } from "@/api/getData";
-import { getCoverParamUrl } from "@/utils/getUrl";
+import { Htag, CoverSlider } from "@/components";
+import { saveRefByID } from "@/utils/scrollById";
 
-export const MainCovers = async ({ className, ...props }: MainCoversProps): Promise<JSX.Element> => {
-  const coversList = await getMainPageCovers().catch(async (e) => {
-    console.error(e);
-    return [];
-  });
-  await bdDisconnect();
+export const MainCovers = async ({ coversList, id, className, ...props }: MainCoversProps): Promise<JSX.Element> => {
   return (
-    <section className={cn("section", className)} {...props}>
+    <section id={id} className={cn("section", className)} ref={node => id&&saveRefByID(id, node)} {...props}>
       <Htag tag="h2" opt="big">Обложки</Htag>
-      < CoverSlider coverList={coversList} opt='link' getUrl={getCoverParamUrl} />
-      <LinkButton href="/covers">Подробнее</LinkButton>
+      <CoverSlider coverList={coversList} />    
     </section>
   );
 };
-
-
-//TODO: разобраться где должно быть bdDisconnect
