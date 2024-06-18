@@ -41,7 +41,7 @@ export const CoverSlider = ({ coverList, className, ...props }: CoverSliderProps
           onClick={() => instanceRef.current?.prev()}
         />
 
-        <div ref={sliderRef} className="keen-slider">
+        <div ref={sliderRef} className={cn("keen-slider", styles.slider)}>
           {coverList && coverList.map((cover) => (
             <div key={`cMi_${cover.id}`} className={cn("keen-slider__slide", styles.cover)}>
               <Image className={styles.img}

@@ -1,18 +1,23 @@
 .container {
     position: relative;
-    width: 100%;
+    width: 100%;   
 }
 
 .wrapper {
     display: flex;
     gap: 0 8px;
-    align-items: center;
+    align-items: center;    
+}
+
+.slider {
+    padding: 5px 0;
 }
 
 .cover {      
     font-size: 0;
     border-radius: 5px;
     overflow: hidden;
+    box-shadow: 3px 2px 5px 0 var(--decor-light-color);
 }
 
 .img {
