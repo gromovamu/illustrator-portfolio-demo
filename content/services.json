@@ -1,7 +1,7 @@
 {
   "services": [{
       "id": 1,
-      "iconSrc": "/img/svg/coverIcon.svg",
+      "iconSrc": "/svg/coverIcon.svg",
       "title": "Обложки",
       "descr": "Разработка дизайн обложек для электронных и печатных изданий",
       "text": [
@@ -11,7 +11,7 @@
     },
     {
       "id": 2,
-      "iconSrc": "/img/svg/illustrationIcon.svg",
+      "iconSrc": "/svg/illustrationIcon.svg",
       "title": "Иллюстрация",
       "descr": "Векторные изображения, разработка персонажей, небольшие серии иллюстрация",
       "text": [

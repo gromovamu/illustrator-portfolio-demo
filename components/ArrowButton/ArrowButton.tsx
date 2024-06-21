@@ -1,7 +1,7 @@
 import { ArrowButtonProps } from "./ArrowButton.props";
 import styles from "./ArrowButton.module.css";
 import cn from "classnames";
-import ArrorImg from "@/public/img/svg/navBtnPrevIcon.svg";
+import ArrorImg from "@/public/svg/navBtnPrevIcon.svg";
 
 export const ArrowButton = ({ opt, className, ...props }: ArrowButtonProps): JSX.Element => {
     return (<button className={cn("btn", styles.button, className, {

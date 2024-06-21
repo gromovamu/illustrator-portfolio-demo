@@ -12,7 +12,7 @@ export default async function IllustrationsListPage() {
      <Htag tag='h1'>Иллюстратор Громова Мария</Htag>
      <section className={cn("section")}>
         <Htag tag="h2" opt="big">Иллюстрации</Htag>
-        <DescriptionCard iconSrc="/img/svg/coverIcon.svg">  
+        <DescriptionCard iconSrc={`${process.env.NEXT_PUBLIC_SVG_PATH}/illustrationIcon.svg`}>  
           <Text>
             {info}&nbsp;
             <InlineLink decor="back" href="/contacts">связаться со мной</InlineLink>

@@ -1,13 +1,14 @@
-import Image from 'next/image';
+import ExportedImage from "next-image-export-optimizer";
 
 export default function NotFound() {
   return (
     <div className="container">
       <div className="in-screen-img">
-        <Image 
+        <ExportedImage 
           fill
+          unoptimized
           priority={true}
-          src='/img/main/error404.svg'
+          src={`${process.env.NEXT_PUBLIC_MAIN_PATH}/error404.svg`}
           alt='404| Страница не найдена' />
       </div>
     </div>

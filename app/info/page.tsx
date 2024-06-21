@@ -1,6 +1,6 @@
 'use client';
 import { Text, Htag } from "@/components";
-import Image from 'next/image';
+import ExportedImage from "next-image-export-optimizer";
 import styles from "./page.module.css";
 import { getAuthorInfo } from "@/api/getStaticContent";
 
@@ -14,10 +14,10 @@ export default function Page() {
       <section className={styles.info}>
         <div className={styles.container}>
           <div className={styles.imgContainer}>
-            <Image  className={styles.img}            
+            <ExportedImage  className={styles.img}            
               fill
               unoptimized
-              src={'/img/main/info-foto.jpg'}
+              src={`${process.env.NEXT_PUBLIC_MAIN_PATH}/info-foto.jpg`}
               alt='Фото автора' />
           </div>         
 

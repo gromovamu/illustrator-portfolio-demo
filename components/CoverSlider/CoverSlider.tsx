@@ -7,7 +7,7 @@ import cn from "classnames";
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
 import { ArrowButton } from "@/components";
-import Image from 'next/image';
+import ExportedImage from "next-image-export-optimizer";
 
 
 export const CoverSlider = ({ coverList, className, ...props }: CoverSliderProps): JSX.Element => {
@@ -44,10 +44,9 @@ export const CoverSlider = ({ coverList, className, ...props }: CoverSliderProps
         <div ref={sliderRef} className={cn("keen-slider", styles.slider)}>
           {coverList && coverList.map((cover) => (
             <div key={`cMi_${cover.id}`} className={cn("keen-slider__slide", styles.cover)}>
-              <Image className={styles.img}
+              <ExportedImage className={styles.img}
                 width={210}
-                height={305}
-                unoptimized
+                height={305}                
                 src={cover.url}
                 alt='' />
             </div>

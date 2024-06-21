@@ -4,7 +4,7 @@ import styles from "./Contact.module.css";
 import cn from "classnames";
 import { Htag, InlineLink, Text } from "@/components";
 import { saveRefByID } from "@/utils/scrollById";
-import Image from 'next/image';
+import ExportedImage from "next-image-export-optimizer";
 
 export const Contact = ({ mail, telegram, className, ...props }: ContactProps): JSX.Element => {
 
@@ -22,11 +22,12 @@ export const Contact = ({ mail, telegram, className, ...props }: ContactProps): 
         </InlineLink>
       </Text>
       <div className={styles.imgContainer}>
-        <Image className={styles.img}
+        <ExportedImage className={styles.img}
           fill
+          unoptimized
           priority={true}
-          src='img/main/contacts.svg'
-          alt='Декоративное изображение почтового ящика' />
+          src={`${process.env.NEXT_PUBLIC_MAIN_PATH}/contacts.svg`}
+          alt='' />
       </div>
 
     </section>);

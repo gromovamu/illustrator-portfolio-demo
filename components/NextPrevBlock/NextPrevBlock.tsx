@@ -2,8 +2,8 @@ import { NextPrevBlockProps } from "./NextPrevBlock.props";
 import styles from "./NextPrevBlock.module.css";
 import cn from "classnames";
 import Link from "next/link";
-import NextIcon from "@/public/img/svg/navBtnNextIcon.svg";
-import PrevIcon from "@/public/img/svg/navBtnPrevIcon.svg";
+import NextIcon from "@/public/svg/navBtnNextIcon.svg"; 
+import PrevIcon from "@/public/svg/navBtnPrevIcon.svg";
 import { decorFont } from "@/fonts/fonts";
 
 export const NextPrevBlock = ({ urlData, className, ...props }: NextPrevBlockProps): JSX.Element => {

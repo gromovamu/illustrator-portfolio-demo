@@ -2,9 +2,9 @@ import { HeroProps } from "./Hero.props";
 import styles from "./Hero.module.css";
 import cn from "classnames";
 import { Htag, InfoCard, InlineLink, Text } from "@/components";
-import Image from 'next/image';
+import ExportedImage from "next-image-export-optimizer";
 
-export const Hero = ({ className, ...props }: HeroProps): JSX.Element => {
+export const Hero = ({ className, ...props }: HeroProps): JSX.Element => {  
   return (
     <section className={cn(styles.hero, className)} {...props}>
       <div className={styles.container}>
@@ -17,10 +17,11 @@ export const Hero = ({ className, ...props }: HeroProps): JSX.Element => {
         </InfoCard>
 
         <div className={styles.avatarContainer}>
-          <Image className={styles.avatar}
-            fill
-            unoptimized
-            src={'/img/main/avatar.png'}
+          <ExportedImage className={styles.avatar}            
+            width={358}
+            height={358}
+            priority={true}
+            src={`${process.env.NEXT_PUBLIC_MAIN_PATH}/avatar.png`}
             alt='Аватар: иллистратор Громова Мария' />
         </div>
 

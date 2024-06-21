@@ -4,11 +4,12 @@ module.exports = {
   output: 'export',
   images: {
     loader: "custom",
-    imageSizes: [380, 512],   
+    imageSizes: [380, 512], 
+    deviceSizes: [ 1080],  
   },
   transpilePackages: ["next-image-export-optimizer"],
   env: {
-    nextImageExportOptimizer_imageFolderPath: "public/image/",
+    nextImageExportOptimizer_imageFolderPath: "public/img/",
     nextImageExportOptimizer_exportFolderPath: "out",
     nextImageExportOptimizer_quality: "75",
     nextImageExportOptimizer_storePicturesInWEBP: "true",
