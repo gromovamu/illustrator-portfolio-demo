@@ -2,15 +2,14 @@ import { CoverBtnProps } from "./CoverBtn.props";
 //import styles from "./CoverBtn.module.css";
 import styles from "../CoverLink/CoverLink.module.css";
 import cn from "classnames";
-import Image from 'next/image';
+import ExportedImage from "next-image-export-optimizer";
 
 export const CoverBtn = ({ srcImg, className, ...props }: CoverBtnProps): JSX.Element => {
   return (
     <button className={cn("btn", styles.cover, className)} {...props}>      
-      <Image className={styles.img}
+      <ExportedImage className={styles.img}
         width={210}
-        height={305}
-        unoptimized
+        height={305}        
         src={srcImg}
         alt='' />
     </button>

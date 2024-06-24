@@ -22,5 +22,3 @@ export const CardList = ({ seriaDecor, cardList, className, ...props }: CardList
     </ul>
   );
 };
-
-//TODO: генерация пути к странице с иллюстрацией

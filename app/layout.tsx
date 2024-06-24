@@ -6,7 +6,7 @@ import { getSocialLinks } from "@/api/getStaticContent";
 
 export const metadata: Metadata = {
   title: "Иллюстрации Громовой Марии",
-  description: "Сайт-портофолио илюстратора Громовой МАрии",
+  description: "Сайт-портофолио илюстратора Громовой Марии. Авторские иллюстрации и обложки на заказ",
 };
 
 export default function RootLayout({

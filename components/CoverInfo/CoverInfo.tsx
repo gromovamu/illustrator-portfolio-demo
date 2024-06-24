@@ -4,7 +4,7 @@ import styles from "./CoverInfo.module.css";
 import cn from "classnames";
 import { CoverBtn, CoverNavEvent } from "@/components";
 import { useState } from "react";
-import Image from 'next/image';
+import ExportedImage from "next-image-export-optimizer";
 import { decorFont } from "@/fonts/fonts";
 
 export const CoverInfo = ({ coversList, className, ...props }: CoverInfoProps): JSX.Element => {
@@ -19,11 +19,10 @@ export const CoverInfo = ({ coversList, className, ...props }: CoverInfoProps): 
     <CoverNavEvent setActive={setActiveById} />
     <div className={cn(styles.mainBlock)}>
       <div className={cn(styles.imgContainer)} >
-        <Image className={styles.img}
+        <ExportedImage className={styles.img}
           width={400}
-          height={580}
-          unoptimized
-          src={coversList[activeCover]?.url ?? '/default.jpg'}
+          height={580}          
+          src={coversList[activeCover]?.url}
           alt='' />
       </div>
       {coversList[activeCover].tags && <ul className={cn(styles.tags, decorFont.className)}>

@@ -16,7 +16,7 @@ export default async function IllustrationDetailPage({ params }: { params: { ali
   const { alias } = params;
   const illustrationId = parseInt(alias, 10);
   const illustrationData = await getIllustrationData(illustrationId);
-
+ 
   if (illustrationData === null) {
     notFound();
   }

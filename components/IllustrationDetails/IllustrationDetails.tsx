@@ -42,6 +42,3 @@ export const IllustrationDetails = ({ data, nav, children, className, ...props }
     </div>
   );
 };
-
-
-//TODO:unoptimized - в Image временно, пока не разберусь с загрузчиком в режиме export

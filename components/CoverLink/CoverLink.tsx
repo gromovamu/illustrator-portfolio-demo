@@ -2,7 +2,7 @@ import { CoverLinkProps } from "./CoverLink.props";
 import styles from "./CoverLink.module.css";
 import cn from "classnames";
 import Link from "next/link";
-import Image from 'next/image';
+import ExportedImage from "next-image-export-optimizer";
 
 export const CoverLink = ({ srcImg, url, className, ...props }: CoverLinkProps): JSX.Element => {
   return (
@@ -11,17 +11,14 @@ export const CoverLink = ({ srcImg, url, className, ...props }: CoverLinkProps):
       scroll={false}
       {...props}>
       
-      <Image className={styles.img}
+      <ExportedImage className={styles.img}
         width={210}
-        height={305}
-        unoptimized
+        height={305}        
         src={srcImg}
         alt='' />
     </Link>
   );
 };
 
-
-//TODO:unoptimized - в Image временно, пока не разберусь с загрузчиком в режиме export
 // TODO: разобратьс с тем что писать/ не писать в alt
 //href={{ pathname: '/covers', query: { num: num.toString() } }}

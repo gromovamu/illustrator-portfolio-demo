@@ -23,6 +23,10 @@
     list-style: none;
 }
 
+.btnContainer {
+    display: none;
+}
+
 @media (max-width: 1200px) {
     .container {      
         grid-template-columns: repeat(3, auto);
@@ -37,6 +41,10 @@
 }
 
 @media (max-width: 520px) {
+    .seria {      
+        gap: var(--padding-small);
+    }
+
     .container {      
         display: none;
     }
@@ -57,5 +65,23 @@
 
     .right {
         right: -18px;
+    }
+
+    .btnContainer {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    
+    .btn {
+        min-width: 30px;   
+        padding-left: 8px;
+        padding-right: 8px;
+        font-size: 16px;
+    }
+
+    .active {
+        background-color: var(--nav-color-hover);
     }
 }

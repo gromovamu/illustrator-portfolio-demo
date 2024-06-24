@@ -20,6 +20,7 @@ export const Hero = ({ className, ...props }: HeroProps): JSX.Element => {
           <ExportedImage className={styles.avatar}            
             width={358}
             height={358}
+            unoptimized
             priority={true}
             src={`${process.env.NEXT_PUBLIC_MAIN_PATH}/avatar.png`}
             alt='Аватар: иллистратор Громова Мария' />

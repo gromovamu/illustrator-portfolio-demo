@@ -17,7 +17,7 @@ export const BurgerMenu = ({ menu, className, ...props }: BurgerMenuProps): JSX.
 
   const hideAnimate = useSpring(
     {
-      x: isOpenMode ? '0%' : '-100%',
+      x: isOpenMode ? '0%' : '-120%',
       opacity: isOpenMode ? 1 : 0,
       config: {
         duration: isOpenMode ? 500 : 300,

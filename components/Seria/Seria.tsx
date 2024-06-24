@@ -3,7 +3,7 @@ import { SeriaProps } from "./Seria.props";
 import styles from "./Seria.module.css";
 import cn from "classnames";
 import { useState } from "react";
-import { ArrowButton, IllustrationDetails, ImgButton } from "@/components";
+import { ArrowButton, Button, IllustrationDetails, ImgButton } from "@/components";
 import { getPropertyInfoDetail, getSeriaInfoDetails } from "@/api/getData";
 import { useRef } from 'react';
 
@@ -48,19 +48,17 @@ export const Seria = ({ seria, illustrationDataList, className, ...props }: Seri
             onClick={() => onClick(i)} />
         ))}
       </div>
+
+      <div className={styles.btnContainer}>
+        {illustrationDataList.map((img, i) => (
+          <Button key={`btn_${seria.id}_${i}`}
+            className={cn(styles.btn, {[
+              styles.active]: activeImg === i 
+            })} 
+            aria-label={`Выбрать иллюстрацию ${getPropertyInfoDetail('Название', img.details)}`}
+            onClick={() => onClick(i)}>{i+1}</Button>
+        ))}
+      </div>
     </div>
   );
 };
-
-
-/*<div className="navigation-wrapper">
-        <div ref={sliderRef} className="keen-slider">
-          {illustrationDataList.map((img, i) => (
-            <ImgButton key={`${seria.id}_${i}`}
-              className="keen-slider__slide"
-              imgUrl={img.url} 
-              onClick={() => setActiveImg(i)}/>))}
-        </div>
-      </div>
-      */
-
