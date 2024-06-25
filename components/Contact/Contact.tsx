@@ -5,9 +5,10 @@ import cn from "classnames";
 import { Htag, InlineLink, Text } from "@/components";
 import { saveRefByID } from "@/utils/scrollById";
 import ExportedImage from "next-image-export-optimizer";
+import { useState } from "react";
 
 export const Contact = ({ mail, telegram, className, ...props }: ContactProps): JSX.Element => {
-
+  const [loaded, setLoaded] = useState(true);
   return (
     <section id="contacts" className={cn(styles.contact, className)} ref={node => saveRefByID("contacts", node)} {...props}>
       <Htag tag="h2" opt="medium" className={styles.title}>Контакты</Htag>
@@ -21,15 +22,16 @@ export const Contact = ({ mail, telegram, className, ...props }: ContactProps): 
           {mail.text}
         </InlineLink>
       </Text>
-      <div className={styles.imgContainer}>
+      {loaded && <div className={styles.imgContainer}>
         <ExportedImage className={styles.img}
           fill
+          onError={() => setLoaded(false)}
           unoptimized
           priority={true}
           src={`${process.env.NEXT_PUBLIC_MAIN_PATH}/contacts.svg`}
           alt='' />
       </div>
-
+      }
     </section>);
 };
 

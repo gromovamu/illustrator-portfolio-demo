@@ -16,6 +16,4 @@ export const CoverBtn = ({ srcImg, className, ...props }: CoverBtnProps): JSX.El
   );
 };
 
-//TODO: размер изображений, переделать!!! 
-//TODO:unoptimized - в Image временно, пока не разберусь с загрузчиком в режиме export
 //TODO: подпись для aria атрибутов

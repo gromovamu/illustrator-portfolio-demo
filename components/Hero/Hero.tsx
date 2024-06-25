@@ -4,7 +4,7 @@ import cn from "classnames";
 import { Htag, InfoCard, InlineLink, Text } from "@/components";
 import ExportedImage from "next-image-export-optimizer";
 
-export const Hero = ({ className, ...props }: HeroProps): JSX.Element => {  
+export const Hero = ({ className, ...props }: HeroProps): JSX.Element => { 
   return (
     <section className={cn(styles.hero, className)} {...props}>
       <div className={styles.container}>
@@ -21,9 +21,9 @@ export const Hero = ({ className, ...props }: HeroProps): JSX.Element => {
             width={358}
             height={358}
             unoptimized
-            priority={true}
+            priority={true}           
             src={`${process.env.NEXT_PUBLIC_MAIN_PATH}/avatar.png`}
-            alt='Аватар: иллистратор Громова Мария' />
+            alt='' />
         </div>
 
       </div>

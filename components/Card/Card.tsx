@@ -11,7 +11,7 @@ export const Card = ({ title, seria, src, href, className, ...props }: CardProps
       <ExportedImage className={styles.img}
         width={420}
         height={420}  
-        sizes="(max-width: 520px) 380px, (max-width: 760px) 420px,  380px"      
+        sizes="(max-width: 520px) 380px, (max-width: 760px) 420px,  380px"  
         src={src}
         alt={href} />
 
