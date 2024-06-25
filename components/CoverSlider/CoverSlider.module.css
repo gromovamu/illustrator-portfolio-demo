@@ -26,6 +26,10 @@
     object-fit: cover;
 }
 
+.hidden {
+    opacity: 0;
+}
+
 @media (max-width: 860px) {
     .wrapper {
         gap: 0 2px;
