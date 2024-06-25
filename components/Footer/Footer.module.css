@@ -19,7 +19,7 @@
 }
 
 .copy {
-  font-size: 24px;
+  font-size: 1.5rem;
   line-height: 100%;
   font-weight: 600;
   color: var(--nav-color);
@@ -49,14 +49,14 @@
   }
 
   .copy {
-    font-size: 22px;
+    font-size: 1.4rem;
   }
 }
 
 @media (max-width: 520px) {
 
   .copy {
-    font-size: 18px;
+    font-size: 1.2rem;
   }
 
   .socialList {
