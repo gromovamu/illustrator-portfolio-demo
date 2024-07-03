@@ -9,16 +9,15 @@ import { useEffect, useState } from "react";
 
 export const CardList = ({ seriaDecor, cardList, className, ...props }: CardListProps): JSX.Element => {
   const [isCanOpenArr, setIsCanOpenArr] = useState(Array.from(Array(cardList.length).keys(), (i) => i === 0 ? true : false));
-  
+
   const handleAddCanOpen = (i: number): void => {
-    setIsCanOpenArr(arr => { arr.splice(i, 1, true); return [...arr] });
-    console.log(`handleAddCanOpen ${i}`);
+    setIsCanOpenArr(arr => { arr.splice(i, 1, true); return [...arr]; });   
   };
 
   return (
     <ul className={cn(styles.list, className)} {...props}>
       {
-        cardList && cardList.map((card,i) => {
+        cardList && cardList.map((card, i) => {
           const isSeria = card.seriaId === null ? false : true;
           return (
             <CardItem className={cn(styles.item, {
@@ -37,7 +36,7 @@ export const CardList = ({ seriaDecor, cardList, className, ...props }: CardList
 };
 
 
-function CardItem({ index, isCanOpen, handleSetCanOpen, children, ...props }: CardItemProps): JSX.Element {
+function CardItem({ index, isCanOpen, handleSetCanOpen, children}: CardItemProps): JSX.Element {
   const api = useSpringRef();
   const [isInView, setIsInView] = useState(false);
   const style = useSpring(
@@ -50,21 +49,20 @@ function CardItem({ index, isCanOpen, handleSetCanOpen, children, ...props }: Ca
     }
   );
 
-  const [ref] = useInView({
+  const [refInView] = useInView({
     /* Optional options */
     threshold: 1,
     triggerOnce: true,
     fallbackInView: true,
-    onChange: (inView) => {
-      console.log(inView);
+    onChange: (inView) => {     
       if (inView) {
         setIsInView(true);
       }
     }
   });
 
-  useEffect(() => {
-    console.log(`useEffect in card`);
+
+  useEffect(() => {   
     if (isCanOpen && isInView) {
       api.start({
         to: { opacity: 1, scale: 1, },
@@ -82,7 +80,7 @@ function CardItem({ index, isCanOpen, handleSetCanOpen, children, ...props }: Ca
     return;
   }, [isCanOpen, isInView, api, index, handleSetCanOpen]);
 
-  return <animated.li ref={ref } className={styles.item} style={style} {...props}>{children}</animated.li>;
+  return <animated.li ref={refInView} className={styles.item} style={style}>    
+      {children}    
+  </animated.li>;
 }
-
-// TODO: разобраться как помирить ref из inView и animate
