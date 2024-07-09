@@ -35,8 +35,7 @@ export const CardList = ({ seriaDecor, cardList, className, ...props }: CardList
   );
 };
 
-
-function CardItem({ index, isCanOpen, handleSetCanOpen, children}: CardItemProps): JSX.Element {
+function CardItem({ index, isCanOpen, handleSetCanOpen, children, className}: CardItemProps): JSX.Element {
   const api = useSpringRef();
   const [isInView, setIsInView] = useState(false);
   const style = useSpring(
@@ -61,7 +60,6 @@ function CardItem({ index, isCanOpen, handleSetCanOpen, children}: CardItemProps
     }
   });
 
-
   useEffect(() => {   
     if (isCanOpen && isInView) {
       api.start({
@@ -80,7 +78,7 @@ function CardItem({ index, isCanOpen, handleSetCanOpen, children}: CardItemProps
     return;
   }, [isCanOpen, isInView, api, index, handleSetCanOpen]);
 
-  return <animated.li ref={refInView} className={styles.item} style={style}>    
+  return <animated.li ref={refInView} className={cn(className, styles.item)} style={style}>    
       {children}    
   </animated.li>;
 }

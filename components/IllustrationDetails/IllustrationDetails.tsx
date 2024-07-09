@@ -20,8 +20,7 @@ export const IllustrationDetails = ({ data, nav, children, className, ...props }
     from: { opacity: 0, scale: 0.8},
   }), []);
 
-  useEffect(() => {
-    console.log('useEffect ');
+  useEffect(() => {   
     api.start({
       from: { opacity: 0 },
       to: { opacity: 1 },

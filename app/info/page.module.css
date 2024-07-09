@@ -23,8 +23,8 @@
 }
 
 .img {
-    object-fit: cover;
-    object-position: left top;   
+    object-fit: contain;
+    object-position: left center;   
 }
 
 .descr {
