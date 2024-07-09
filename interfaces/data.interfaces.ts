@@ -21,7 +21,7 @@ export interface Seria {
     id: number;
     title: string;
     description: string;
-    urlCover: string;
+    illustrationId: number;
 }
 
 export interface IllustrationData {

@@ -5,13 +5,13 @@ import cn from "classnames";
 import { useState } from "react";
 import { ArrowButton, Button, IllustrationDetails, ImgButton } from "@/components";
 import { getPropertyInfoDetail, getSeriaInfoDetails } from "@/api/getData";
-import { useRef } from 'react';
 
 export const Seria = ({ seria, illustrationDataList, className, ...props }: SeriaProps): JSX.Element => {
-  const [activeImg, setActiveImg] = useState(0);
-  const refData = useRef(null);
+  const coverIndex = illustrationDataList.findIndex(item=> item.id === seria.illustrationId);
+  const [activeImg, setActiveImg] = useState(coverIndex===-1? 0:coverIndex );
 
   const seriaDetail = getSeriaInfoDetails(seria);
+
   const getData = (index: number) => {
     const infoObj = illustrationDataList[index];
     return { id: infoObj.id, url: infoObj.url, details: [...seriaDetail, ...infoObj.details] };
@@ -26,7 +26,7 @@ export const Seria = ({ seria, illustrationDataList, className, ...props }: Seri
 
   return (
     <div className={cn(styles.seria, className)} {...props}>
-      <div className={styles.data} ref={refData}>
+      <div className={styles.data}>
         <IllustrationDetails data={getData(activeImg)} nav={true}>
           <ArrowButton className={cn(styles.arrow, styles.left)}
             opt="left"

@@ -29,7 +29,7 @@ const getIllustrationArr = (illustrationList: IllustrationResult[]): Illustratio
   return illustrationList.map(illustration => (
     {
       ...illustration.illustration,
-      href: generatePageLink(illustration.illustration)
+      href: generatePageLinkById(illustration.illustration.id, illustration.illustration.seriaId)
     }));
 };
 
@@ -83,7 +83,7 @@ export async function getAllCovers(): Promise<Cover[]> {
   return prisma.coverList.findMany({
     select: {
       cover: true
-    },  
+    },
   }).then(coverList => coverList.map(cover => cover.cover));
 }
 
@@ -107,18 +107,23 @@ export async function getAllIllustrution(): Promise<Illustration[]> {
   }).then(getIllustrationArr);
 }
 
-let savedIllustrutionList: Illustration[] = [];
-// получение списка всех иллюстраций из сохраненного массива
-// если маасив пуст то загружает данные из базы или возращает текущий сохранееный список 
-export async function getSavedIllustrutionList(): Promise<Illustration[]> {
-  if (savedIllustrutionList.length === 0) {
-    return getAllIllustrution().then(list => {
-      savedIllustrutionList = list;
-      return list;
-    }).catch(errorGetEmptyList);
-  }
-  return savedIllustrutionList;
+export async function getHrefList(): Promise<{ id: number, href: string }[]> {
+  return prisma.illustrationList.findMany({
+    select: {
+      illustration: {
+        select: {
+          id: true,
+          seriaId: true
+        }
+      }
+    }
+  }).then(idList => idList.map(({ illustration }) => ({
+    id: illustration.id,
+    href: generatePageLinkById(illustration.id, illustration.seriaId)
+  })))
+    .catch(errorGetEmptyList);
 }
+
 
 // получение информации о конкретной иллюстрации по id
 export async function getIllustrutionInfo(id: number): Promise<Illustration | null> {
@@ -135,22 +140,7 @@ export async function getSeriaInfo(id: number): Promise<Seria | null> {
     where: {
       id: id,
     },
-    include: {
-      illustration_seria_illustrationIdToillustration: {
-        select: {
-          url: true
-        }
-      }
-    }
-  }).then(info => {
-    return info !== null ? {
-      id: info.id,
-      title: info.title,
-      description: info.description,
-      urlCover: info.illustration_seria_illustrationIdToillustration.url,
-    } : null;
-  }
-  );
+  });
 }
 
 // получение списка иллюстраций входящих в серию по id серии
@@ -192,7 +182,17 @@ export async function getCoverInfo(id: number): Promise<Cover | null> {
 }
 // TODO: не разобралась, как сделать один запрос 
 // так что пока сделаю 2 запроса 
-// очень громоздко, нужно понять как переделать
+// очень громоздко, нужно понять как переделать и надо ли
+
+
+// получение списка всех иллюстраций без серии 
+export async function getNoSeriaIllustrationList(): Promise<Illustration[]> {
+  return prisma.illustration.findMany({
+    where: {
+      seriaId: null,
+    },
+  }).catch(errorGetEmptyList);
+}
 
 
 // получение списка id всех иллюстраций без серии ( для статической генерации соответсвующих страниц)
@@ -205,7 +205,7 @@ export async function getNoSeriaIllustrationIdList(): Promise<{ id: number }[]> 
       seriaId: null,
     },
   }).catch(errorGetEmptyList);
-}
+} //TODO: возможно будет не нужна
 
 // получение списка id всех серий ( для статической генерации соответсвующих страниц)
 export async function getSeriaIdList(): Promise<{ id: number }[]> {
@@ -218,7 +218,7 @@ export async function getSeriaIdList(): Promise<{ id: number }[]> {
 
 //TODO: КЭШ в запросах к базе разобраться и настроить в prisma запросах
 
-function formLinksPrevNext(num: number, arr: Illustration[]) {
+export function formLinksPrevNext(num: number, arr: Illustration[]) {
   if (num === 0) {
     return { prev: null, next: arr[1].href ?? null };
   }
@@ -244,15 +244,20 @@ export function getLinksPrevNextBySeria(id: number, arr: Illustration[]): { prev
   return null;
 }
 
-
-
 export function generatePageLink(illustration: Illustration) {
   return illustration.seriaId === null ? `/illustration/${illustration.id.toString()}` :
     `/illustration/seria/${illustration.seriaId.toString()}`;
+} //устаревший вариант для подхода с генерацией страницы на каждую отдельную илллюстрацию
+//TODO: разобраться
+
+//
+export function generatePageLinkById(id: number, seriaId: number | null) {
+  return seriaId === null ? `/illustration/single?id=${id.toString()}` :
+    `/illustration/seria/${seriaId.toString()}`;
 }
 
 // преобразование объекта Illustration в объект IllustrationData
-function formIllustrationData(info: Illustration): IllustrationData {
+export function formIllustrationData(info: Illustration): IllustrationData {
   return {
     id: info.id,
     url: info.url,

@@ -82,24 +82,3 @@ export const CoverSlider = ({ coverList, className, ...props }: CoverSliderProps
     </div>
   );
 };
-
-// При генерации обложек ссылок используется идентификатор обложки,
-//TODO: не могу решить как задавать отстуа для стрелок слайдера, пока сделан абсолютно через px
-
-
-/* анимация для слайдера, все работает, но мне почему-то не нравится
-оставляю на случай, если передумаю
-
-  const animation = { duration: 40000, easing: (t: number) => t };
-  ..
-    drag: false,
-created(s) {
-  setLoaded(true);
-  s.moveToIdx(5, true, animation);
-},
-updated(s) {
-  s.moveToIdx(s.track.details.abs + 5, true, animation);
-},
-animationEnded(s) {
-  s.moveToIdx(s.track.details.abs + 5, true, animation);
-},*/

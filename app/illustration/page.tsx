@@ -1,12 +1,12 @@
 
-import { getSavedIllustrutionList } from "@/api/getData";
+import { getAllIllustrution } from "@/api/getData";
 import { getillustrationInfo } from "@/api/getStaticContent";
 import { Divider, Htag, CardList, DescriptionCard, InlineLink, Text} from "@/components";
 import cn from "classnames";
 
 export default async function IllustrationsListPage() { 
   const info = getillustrationInfo(); 
-  const illustrationsList = await getSavedIllustrutionList();
+  const illustrationsList = await getAllIllustrution();
 
   return (<div className="container">
      <Htag tag='h1'>Иллюстратор Громова Мария</Htag>

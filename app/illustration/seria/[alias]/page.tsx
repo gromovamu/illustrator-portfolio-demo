@@ -1,6 +1,7 @@
 
-import { getSeriaIdList, bdDisconnect, getSavedIllustrutionList, getLinksPrevNextBySeria, getSeriaDataList, getSeriaInfo } from "@/api/getData";
+import { getSeriaIdList, bdDisconnect,  getSeriaDataList, getSeriaInfo, getHrefList } from "@/api/getData";
 import { NextPrevBlock, Seria } from "@/components";
+import { getNextPrev } from "@/utils/utils";
 import { notFound } from "next/navigation";
 //import cn from "classnames";
 
@@ -22,8 +23,9 @@ export default async function SeriaDetailPage({ params }: { params: { alias: str
     notFound();
   }
 
-  const illustrationsList = await getSavedIllustrutionList();
-  const nextPrevUrl = getLinksPrevNextBySeria(seriaId, illustrationsList);
+  const hrefList = await getHrefList();
+  const indexInArrHref = hrefList.findIndex(item => item.id === seriaInfo.illustrationId);
+  const nextPrevUrl = indexInArrHref===-1? null: getNextPrev(indexInArrHref, hrefList.map(item => item.href));  
 
   return (<div className="container">
     <div className="section">    
