@@ -1,7 +1,9 @@
 .link {
   display: inline-block;
-  color: var(--title-color);
-  border-radius: 5px;
+  color: var(--decor-color);
+  border-radius: 5px;  
+  font-weight: 500;
+  
 }
 
 /*transition: background-color 0.3s ease-in-out, color 0.3s ease-in, text-decoration color 0.3s ease-in;*/
@@ -25,6 +27,7 @@
 .decorColor {
   transition: color 0.3s ease-in, text-decoration 0.3s ease-in;
 }
+  
 
 .decorColor:focus-visible {
   color: var(--decor-color);
@@ -33,9 +36,9 @@
   outline: none;
 }
 
-.decorColor:hover {
+.decorColor:hover { 
   background-color: transparent;
-  color: var(--decor-color);
+  color: var(--title-color);  
 }
 
 .decorColor:active {
