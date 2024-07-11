@@ -7,13 +7,14 @@ import { decorFont } from "@/fonts/fonts";
 
 export const Card = ({ title, seria, src, href, className, ...props }: CardProps): JSX.Element => {
   return (
-    <Link className={cn(styles.card, decorFont.className, className)} href={href} {...props}>
+    <Link className={cn(styles.card, decorFont.className, className)} href={href} {...props}
+    aria-label={`Открыть страницу иллюстрации ${title}`}>
       <ExportedImage className={styles.img}
         width={420}
         height={420}  
         sizes="(max-width: 520px) 380px, (max-width: 760px) 420px,  380px"  
         src={src}
-        alt={href} />
+        alt='' />
 
       <div className={styles.descr}>
         <div className={styles.title}>

@@ -47,11 +47,13 @@ export const CoverSlider = ({ coverList, className, ...props }: CoverSliderProps
 
   return (
     <div className={cn("slider-container", styles.container, className)}
-      {...props}>
+      {...props}>   
+      <div className="screenreader">Слайдер с обложками</div>     
       <div className={cn("navigation-wrapper", styles.wrapper)}>
         <ArrowButton className={cn(styles.arrow, styles.left)}
           opt="left"
           onClick={() => instanceRef.current?.prev()}
+          aria-label="Предыдущий слайд"
         />
         <div ref={sliderRef} className={cn("keen-slider", styles.slider)}
           onMouseEnter={() => {
@@ -77,6 +79,7 @@ export const CoverSlider = ({ coverList, className, ...props }: CoverSliderProps
         <ArrowButton className={cn(styles.arrow, styles.right)}
           opt="right"
           onClick={() => instanceRef.current?.next()}
+          aria-label="Следующий слайд"
         />
       </div>
     </div>
