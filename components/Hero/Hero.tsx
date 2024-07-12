@@ -16,7 +16,7 @@ export const Hero = ({ className, ...props }: HeroProps): JSX.Element => {
           </Text>
         </InfoCard>
 
-        <div className={styles.avatarContainer}>
+        <div className={styles['avatar-container']}>
           <ExportedImage className={styles.avatar}            
             width={358}
             height={358}

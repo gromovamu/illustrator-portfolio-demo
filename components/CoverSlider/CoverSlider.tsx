@@ -9,6 +9,7 @@ import { useKeenSlider } from 'keen-slider/react';
 import { ArrowButton } from "@/components";
 import ExportedImage from "next-image-export-optimizer";
 import { useState } from "react";
+import { useReducedMotion } from "@react-spring/web";
 
 const animation = { duration: 10000, easing: (t: number) => t };
 
@@ -16,7 +17,7 @@ const animation = { duration: 10000, easing: (t: number) => t };
 export const CoverSlider = ({ coverList, className, ...props }: CoverSliderProps): JSX.Element => {
   const [loaded, setLoaded] = useState(false);
   const [isHover, setIsHover] = useState(false);
-
+  const reducedMotion = useReducedMotion(); //чтобы учесть если у пользователя включено уменьшение движения
   const [sliderRef, instanceRef] = useKeenSlider<HTMLDivElement>({
     initial: 0,
     loop: true,
@@ -47,8 +48,8 @@ export const CoverSlider = ({ coverList, className, ...props }: CoverSliderProps
 
   return (
     <div className={cn("slider-container", styles.container, className)}
-      {...props}>   
-      <div className="screenreader">Слайдер с обложками</div>     
+      {...props}>
+      <div className="screenreader">Слайдер с обложками</div>
       <div className={cn("navigation-wrapper", styles.wrapper)}>
         <ArrowButton className={cn(styles.arrow, styles.left)}
           opt="left"
@@ -57,12 +58,16 @@ export const CoverSlider = ({ coverList, className, ...props }: CoverSliderProps
         />
         <div ref={sliderRef} className={cn("keen-slider", styles.slider)}
           onMouseEnter={() => {
-            instanceRef.current?.moveToIdx(instanceRef.current.track.details.abs + 5, true, animation);
-            setIsHover(true);
+            if (reducedMotion !== true) {
+              instanceRef.current?.moveToIdx(instanceRef.current.track.details.abs + 5, true, animation);
+              setIsHover(true);
+            }
           }}
           onMouseLeave={() => {
-            setIsHover(false);
-            instanceRef.current?.animator.stop();
+            if (reducedMotion !== true) {
+              setIsHover(false);
+              instanceRef.current?.animator.stop();
+            }
           }}>
           {coverList && coverList.map((cover) => (
             <div key={`cMi_${cover.id}`} className={cn("keen-slider__slide", styles.cover,

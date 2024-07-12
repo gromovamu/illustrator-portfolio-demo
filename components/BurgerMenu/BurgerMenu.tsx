@@ -7,13 +7,14 @@ import cn from "classnames";
 import Link from "next/link";
 import { Logo, BurgerButton } from "@/components";
 import { useState } from "react";
-import { useSpring, animated } from '@react-spring/web';
+import { useSpring, animated, useReducedMotion } from '@react-spring/web';
 import { easings } from '@react-spring/web';
 import { MouseEvent } from "react";
 import { onClickIntoScroll } from "@/utils/onClickIntoScroll";
 
 export const BurgerMenu = ({ menu, className, ...props }: BurgerMenuProps): JSX.Element => {
   const [isOpenMode, setIsOpenMode] = useState<boolean>(false); 
+  useReducedMotion();// чтобы учесть если у пользователя включено ограничение движения  
 
   const hideAnimate = useSpring(
     {

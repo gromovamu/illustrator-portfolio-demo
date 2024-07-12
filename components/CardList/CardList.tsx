@@ -4,15 +4,16 @@ import styles from "./CardList.module.css";
 import cn from "classnames";
 import { Card } from "@/components";
 import { useInView } from "react-intersection-observer";
-import { animated, easings, useSpring, useSpringRef } from "@react-spring/web";
+import { animated, easings, useReducedMotion, useSpring, useSpringRef } from "@react-spring/web";
 import { useEffect, useState } from "react";
 
 export const CardList = ({ seriaDecor, cardList, className, ...props }: CardListProps): JSX.Element => {
   const [isCanOpenArr, setIsCanOpenArr] = useState(Array.from(Array(cardList.length).keys(), (i) => i === 0 ? true : false));
 
+  
   const handleAddCanOpen = (i: number): void => {
     setIsCanOpenArr(arr => { arr.splice(i, 1, true); return [...arr]; });   
-  };
+  };  
 
   return (
     <ul className={cn(styles.list, className)} {...props}>
@@ -36,12 +37,13 @@ export const CardList = ({ seriaDecor, cardList, className, ...props }: CardList
 };
 
 function CardItem({ index, isCanOpen, handleSetCanOpen, children, className}: CardItemProps): JSX.Element {
+  const reducedMotion = useReducedMotion();// чтобы учесть если у пользователя включено ограничение движения  
   const api = useSpringRef();
-  const [isInView, setIsInView] = useState(false);
+  const [isInView, setIsInView] = useState(reducedMotion ? true : false);
   const style = useSpring(
     {
       ref: api,
-      from: { opacity: 0, scale: 0 },
+      from: { opacity: reducedMotion? 1:0, scale: reducedMotion? 1:0 },
       config: {
         duration: 1,
       },
