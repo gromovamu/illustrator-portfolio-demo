@@ -1,0 +1,11 @@
+.container { 
+    height: 90vh;
+    max-height: 582px;
+}
+
+.img {
+    height: 100%;
+    width: auto;
+    object-fit: contain;
+    border-radius: 3px;     
+}

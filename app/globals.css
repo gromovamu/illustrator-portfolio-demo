@@ -19,6 +19,7 @@
   --nav-color-focus: var(--decor-light-color);
   --nav-color-hover: #bb9389;
   --nav-color-active: var(--text-color);
+  --background-modal-color: rgba(255, 255, 255, 0.8);
 }
 
 /*----------------------------------------*/

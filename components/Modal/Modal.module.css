@@ -1,0 +1,68 @@
+.modal {
+    position: fixed;    
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    z-index: 100;
+    display: flex;    
+    justify-content: center;     
+    background: var(--background-modal-color);
+}
+
+.container {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center; 
+    width: 100%; 
+    max-width: 1290px;
+}
+
+.panel {   
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+    padding: var(--padding) 60px; 
+}
+
+.close-btn {
+    position: absolute;
+    right: var(--padding);
+    top: var(--padding);
+    color: var(--nav-color);    
+    transition: color 0.3s ease-in-out;
+}
+
+.close-icon {
+    fill: currentColor;
+    width: 24px;
+    height: 24px;
+}
+
+.close-btn:focus-visible {
+    color: var(--nav-color-focus);  
+}
+
+.close-btn:hover {
+    color: var(--nav-color-hover);  
+}
+
+.close-btn:active {
+    color: var(--nav-color-active);  
+}
+
+@media (max-width:860px) {
+    .close-icon {
+        width: 20px;
+        height: 20px;
+    }
+}
+
+@media (max-width:520px) {
+    .close-icon {
+        width: 16px;
+        height: 16px;
+    }
+}
