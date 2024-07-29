@@ -76,8 +76,7 @@ export const CoverSlider = ({ coverList, className, ...props }: CoverSliderProps
               className={cn("keen-slider__slide",
               { [styles.hidden]: !loaded })}
               onClick={() => {setIsOpenModal(!isOpenModal); setActiveCoverIndex(i);}}
-              onFocus={()=> {console.log(`on focus ${i}`);
-              instanceRef.current?.moveToIdx(i,false);}} 
+              onFocus={()=> {instanceRef.current?.moveToIdx(i,false);}} 
               aria-label={`Открыть окно с увеличенным изображением обложки ${cover.title}`}
               srcImg = {cover.url}/> 
           ))}
