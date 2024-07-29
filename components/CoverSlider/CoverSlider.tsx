@@ -6,8 +6,7 @@ import cn from "classnames";
 
 import 'keen-slider/keen-slider.min.css';
 import { useKeenSlider } from 'keen-slider/react';
-import { ArrowButton, Cover, Modal } from "@/components";
-import ExportedImage from "next-image-export-optimizer";
+import { ArrowButton, Cover, CoverBtn, Modal } from "@/components";
 import { useState } from "react";
 import { useReducedMotion } from "@react-spring/web";
 
@@ -73,17 +72,14 @@ export const CoverSlider = ({ coverList, className, ...props }: CoverSliderProps
             }
           }}>
           {coverList && coverList.map((cover, i) => (
-            <button key={`cMi_${cover.id}`} 
-              className={cn("keen-slider__slide", "btn", styles.cover,
+            <CoverBtn key={`cMi_${cover.id}`} 
+              className={cn("keen-slider__slide",
               { [styles.hidden]: !loaded })}
               onClick={() => {setIsOpenModal(!isOpenModal); setActiveCoverIndex(i);}}
-              aria-label={`Открыть модальное окно с изображением ${cover.title}`}>
-              <ExportedImage className={styles.img}
-                width={210}
-                height={305}
-                src={cover.url}
-                alt='' />
-            </button>
+              onFocus={()=> {console.log(`on focus ${i}`);
+              instanceRef.current?.moveToIdx(i,false);}} 
+              aria-label={`Открыть окно с увеличенным изображением обложки ${cover.title}`}
+              srcImg = {cover.url}/> 
           ))}
         </div>
 

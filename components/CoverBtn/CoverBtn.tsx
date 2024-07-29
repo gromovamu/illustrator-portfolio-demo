@@ -1,6 +1,6 @@
 import { CoverBtnProps } from "./CoverBtn.props";
-//import styles from "./CoverBtn.module.css";
-import styles from "../CoverLink/CoverLink.module.css";
+import styles from "./CoverBtn.module.css";
+//import styles from "../CoverLink/CoverLink.module.css";
 import cn from "classnames";
 import ExportedImage from "next-image-export-optimizer";
 
@@ -11,7 +11,8 @@ export const CoverBtn = ({ srcImg, className, ...props }: CoverBtnProps): JSX.El
         width={210}
         height={305}        
         src={srcImg}
-        alt='' />
+        alt='' 
+        />
     </button>
   );
 };
