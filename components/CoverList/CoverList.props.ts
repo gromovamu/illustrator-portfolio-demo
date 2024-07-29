@@ -1,7 +1,7 @@
 import { Cover } from "@/interfaces";
 import { DetailedHTMLProps, HTMLAttributes } from "react";
 
-export interface CoverInfoProps extends DetailedHTMLProps<HTMLAttributes<HTMLDivElement>, HTMLDivElement> {
+export interface CoverListProps extends DetailedHTMLProps<HTMLAttributes<HTMLUListElement>, HTMLUListElement> {
     coversList: Cover[];
 }
 

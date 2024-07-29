@@ -28,12 +28,10 @@ export * from "./NextPrevBlock/NextPrevBlock";
 export * from "./Seria/Seria";
 export * from "./ImgButton/ImgButton";
 export * from "./ArrowButton/ArrowButton";
-export * from "./CoverLink/CoverLink";
 export * from "./CoverBtn/CoverBtn";
 export * from "./CoverSlider/CoverSlider";
+export * from "./CoverList/CoverList";
 export * from "./MainCovers/MainCovers";
-//export * from "./CoverInfo/CoverInfo";
-//export * from "./CoverNavEvent/CoverNavEvent";
 export * from "./Cover/Cover";
 export * from "./Modal/Modal";
 
