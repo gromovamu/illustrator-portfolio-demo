@@ -11,18 +11,19 @@ export const CoverList = ({ coversList, className, ...props }: CoverListProps): 
 
   const openModal = (i: number) => { setIsOpenModal(!isOpenModal); setActiveCoverIndex(i); };
 
-  return (<><ul className={cn("list", styles.list, className)} {...props}>
-    {coversList && coversList.map((cover, i) => <li key={`coversBtn_${i}`} className={styles.item}>
-      <CoverBtn srcImg={cover.url}
-        aria-label={`Открыть окно с увеличенным изображением обложки ${cover.title}`}
-        onClick={() => openModal(i)} />
-    </li>)}
-  </ul>
+  return (<div className={className} {...props}>
+    <ul className={cn("list", styles.list)} >
+      {coversList && coversList.map((cover, i) => <li key={`coversBtn_${i}`} className={styles.item}>
+        <CoverBtn srcImg={cover.url}
+          aria-label={`Открыть окно с увеличенным изображением обложки ${cover.title}`}
+          onClick={() => openModal(i)} />
+      </li>)}
+    </ul>
 
     <Modal isOpen={isOpenModal} setIsOpen={setIsOpenModal}>
       <Cover url={coversList[activeCoverIndex].url} />
     </Modal>
-  </>
+  </div>
 
   );
 };

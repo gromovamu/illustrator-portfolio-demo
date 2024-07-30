@@ -25,9 +25,8 @@ export const Contact = ({ mail, telegram, className, ...props }: ContactProps): 
       {loaded && <div className={styles.imgContainer}>
         <ExportedImage className={styles.img}
           fill
-          onError={() => setLoaded(false)}
-          unoptimized
-          priority={true}
+          onError={() => setLoaded(false)}         
+        
           src={`${process.env.NEXT_PUBLIC_MAIN_PATH}/contacts.svg`}
           alt='' />
       </div>
