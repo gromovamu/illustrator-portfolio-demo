@@ -10,7 +10,7 @@ import { ArrowButton, Cover, CoverBtn, Modal } from "@/components";
 import { useState } from "react";
 import { useReducedMotion } from "@react-spring/web";
 
-const animation = { duration: 20000, easing: (t: number) => t };
+const animation = { duration: 25000, easing: (t: number) => t };
 
 
 export const CoverSlider = ({ coverList, className, ...props }: CoverSliderProps): JSX.Element => {
@@ -49,7 +49,7 @@ export const CoverSlider = ({ coverList, className, ...props }: CoverSliderProps
 
   return (
     <>
-    <div className={cn("slider-container", styles.container, className)}
+    {((coverList) && (coverList.length!==0)) && <div className={cn("slider-container", styles.container, className)}
       {...props}>
       <div className="screenreader">Слайдер с обложками</div>
       <div className={cn("navigation-wrapper", styles.wrapper)}>
@@ -71,12 +71,16 @@ export const CoverSlider = ({ coverList, className, ...props }: CoverSliderProps
               instanceRef.current?.animator.stop();
             }
           }}>
-          {coverList && coverList.map((cover, i) => (
+          {coverList.map((cover, i) => (
             <CoverBtn key={`cMi_${cover.id}`} 
               className={cn("keen-slider__slide",
               { [styles.hidden]: !loaded })}
-              onClick={() => {setIsOpenModal(!isOpenModal); setActiveCoverIndex(i);}}
-              onFocus={()=> {instanceRef.current?.moveToIdx(i,false);}} 
+              onClick={() => { setIsOpenModal(!isOpenModal); setActiveCoverIndex(i);}}
+              onFocus={()=> {
+                const distance = instanceRef.current?.track?.details?.slides[i]?.distance;
+                (distance && (distance < 0)) &&
+                 instanceRef.current?.moveToIdx(i,false);
+                }} 
               aria-label={`Открыть окно с увеличенным изображением обложки ${cover.title}`}
               srcImg = {cover.url}/> 
           ))}
@@ -88,10 +92,10 @@ export const CoverSlider = ({ coverList, className, ...props }: CoverSliderProps
           aria-label="Следующий слайд"
         />
       </div>
-    </div>
+    </div>}
 
     <Modal isOpen={isOpenModal} setIsOpen={setIsOpenModal}>        
-          <Cover url={coverList[activeCoverIndex].url}/>
+          <Cover url={coverList[activeCoverIndex]?.url}/>
     </Modal>
     </>
   );
