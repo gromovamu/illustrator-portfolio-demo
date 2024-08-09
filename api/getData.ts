@@ -47,6 +47,10 @@ export async function bdDisconnect() {
 //  получение списока обложек для главной страницы
 export async function getMainPageCovers(): Promise<Cover[]> {
   return prisma.firstPageCovers.findMany({
+    orderBy:
+    {
+      id: 'asc',
+    },
     select: {
       cover: true
     }
@@ -58,6 +62,10 @@ export async function getMainPageCovers(): Promise<Cover[]> {
 //  получение списока иллюстраций для главной страницы
 export async function getMainPageIllustrations(): Promise<Illustration[]> {
   return prisma.firstPageIllustrations.findMany({
+    orderBy:
+    {
+      id: 'asc',
+    },
     select: selectIllustration
   }).then(getIllustrationArr).catch(errorGetEmptyList);
 }
