@@ -9,6 +9,7 @@ export interface CardListProps extends DetailedHTMLProps<HTMLAttributes<HTMLULis
 export interface CardItemProps extends DetailedHTMLProps<HTMLAttributes<HTMLLIElement>, HTMLLIElement> { 
     index: number;
     isCanOpen: boolean;
+    isAnimate: boolean;
     handleSetCanOpen: (i: number) => void;
     children: ReactNode;
 }

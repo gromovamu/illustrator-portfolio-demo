@@ -1,5 +1,6 @@
 
   .card {
+    --border-radius: 3px;
     position: relative;
     display: block;
     border: none;
@@ -8,7 +9,10 @@
     height: 100%;
     cursor: pointer;
     background-color: transparent;
-    --z-index-base: 19;   
+    --z-index-base: 19;  
+    box-shadow: 5px 2px 10px 0 var(--decor-light-color); 
+    border-radius: var(--border-radius);
+    transition: box-shadow 0.5s ease-in-out;
   }
   
   .img {
@@ -16,7 +20,7 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    border-radius: 3px;
+    border-radius: var(--border-radius);
   }
   
   .descr {
@@ -38,6 +42,7 @@
     background-color: rgba(0, 0, 0, 0.5);
     opacity: 0;
     transition: opacity 0.5s ease-in-out;
+    border-radius: var(--border-radius);
   }
   
   .title {
@@ -53,6 +58,12 @@
   .card:focus-visible .descr {
     opacity: 1;
   }
+
+  .card:focus-visible  {     
+    box-shadow: 5px 2px 10px 0 var(--decor-color); 
+    outline: none;
+  }
+
   
   .card:hover .descr {
     opacity: 1;
@@ -63,14 +74,54 @@
     opacity: 1;
   }
 
-  @media (max-width: 520px) {
+  @media (hover: none) { 
     .descr {
-      font-size: 18px;
+      position: relative;
+      display: flex;
+      flex-direction: column-reverse;
+      justify-content: flex-start;
+      align-items: flex-start;       
+      width: 100%;     
+      height: auto;  
+      padding: 8px;    
+
+      font-size: 1rem;
+      font-weight: 400;
+      line-height: 120%;     
+      background-color: transparent;
+      opacity:1; 
+      text-align: start;
+    }
+
+    .img {
+      display: block;
+      width: 100%;
+      height: auto;
+      object-fit: contain;
+      border-radius: 3px;
+    }
+
+    .title {      
+      font-weight: 500;
+      font-size: 1rem;
+      line-height: 120%;
+      color: var(--text-color);
+    }
+
+    .series {
+      color: var(--title-color);
+      text-decoration-color: currentColor;
+    } 
+   }
+
+  @media (max-width: 520px)  {
+    .descr {
+      font-size: 0.9rem;
     }
 
     .title {
-      font-size: 20px;
-    }
+      font-size: 1rem;
+    }    
   }
   
   

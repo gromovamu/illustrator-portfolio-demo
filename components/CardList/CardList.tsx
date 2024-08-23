@@ -5,18 +5,28 @@ import cn from "classnames";
 import { Card } from "@/components";
 import { useInView } from "react-intersection-observer";
 import { animated, easings, useReducedMotion, useSpring, useSpringRef } from "@react-spring/web";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 
 export const CardList = ({ seriaDecor, cardList, className, ...props }: CardListProps): JSX.Element => {
   const [isCanOpenArr, setIsCanOpenArr] = useState(Array.from(Array(cardList.length).keys(), (i) => i === 0 ? true : false));
+  const [isAnimate, setIsAnimate] = useState(true);
+  const listRef = useRef<HTMLUListElement>(null);
 
-  
   const handleAddCanOpen = (i: number): void => {
     setIsCanOpenArr(arr => { arr.splice(i, 1, true); return [...arr]; });   
   };  
 
+  useEffect(() => {  
+    const topPos = listRef.current?.offsetTop??0;
+    const height = listRef.current?.clientHeight??0;
+  
+    if((topPos + height / 2) < window.scrollY){
+      setIsAnimate(false);   
+    } 
+  },[listRef]);
+
   return (
-    <ul className={cn(styles.list, className)} {...props}>
+    <ul ref = {listRef} className={cn(styles.list, className)} {...props}>
       {
         cardList && cardList.map((card, i) => {
           const isSeria = card.seriaId === null ? false : true;
@@ -25,6 +35,7 @@ export const CardList = ({ seriaDecor, cardList, className, ...props }: CardList
               [styles.decor]: isSeria && seriaDecor
             })} key={`il_c_${card.id}`}
               index={i}
+              isAnimate = {isAnimate}
               isCanOpen={isCanOpenArr[i]}
               handleSetCanOpen={handleAddCanOpen}>
               <Card title={card.title} seria={isSeria} src={card.url} href={card.href ?? ''} />
@@ -36,14 +47,16 @@ export const CardList = ({ seriaDecor, cardList, className, ...props }: CardList
   );
 };
 
-function CardItem({ index, isCanOpen, handleSetCanOpen, children, className}: CardItemProps): JSX.Element {
+function CardItem({ index, isAnimate, isCanOpen, handleSetCanOpen, children, className}: CardItemProps): JSX.Element {
   const reducedMotion = useReducedMotion();// чтобы учесть если у пользователя включено ограничение движения  
   const api = useSpringRef();
-  const [isInView, setIsInView] = useState(reducedMotion ? true : false);
+  const canAnimate = (!isAnimate) || reducedMotion;
+
+  const [isInView, setIsInView] = useState(canAnimate ? true : false);
   const style = useSpring(
     {
       ref: api,
-      from: { opacity: reducedMotion? 1:0, scale: reducedMotion? 1:0 },
+      from: { opacity: canAnimate? 1:0, scale: canAnimate? 1:0 },
       config: {
         duration: 1,
       },
@@ -68,7 +81,7 @@ function CardItem({ index, isCanOpen, handleSetCanOpen, children, className}: Ca
         to: { opacity: 1, scale: 1, },
         delay: index == 0 ? 0 : 100,
         config: {
-          duration: 300,
+          duration: 600,
           easing: easings.easeOutBack
         },
         onStart: () => {
