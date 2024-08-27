@@ -38,7 +38,7 @@ export const CardList = ({ seriaDecor, cardList, className, ...props }: CardList
               isAnimate = {isAnimate}
               isCanOpen={isCanOpenArr[i]}
               handleSetCanOpen={handleAddCanOpen}>
-              <Card title={card.title} seria={isSeria} src={card.url} href={card.href ?? ''} />
+              <Card data={card} isSeriaDecor={seriaDecor} src={card.url} href={card.href ?? ''} />     
             </CardItem>
           );
         })

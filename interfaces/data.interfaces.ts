@@ -14,6 +14,7 @@ export interface Illustration {
     url: string;
     description?: string;
     href?: string;
+    seriaTitle?: string;
 }
 
 

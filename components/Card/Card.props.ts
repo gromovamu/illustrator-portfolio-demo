@@ -1,8 +1,9 @@
 import { DetailedHTMLProps, AnchorHTMLAttributes } from "react";
+import { Illustration } from "@/interfaces/data.interfaces";
 
 export interface CardProps extends DetailedHTMLProps<AnchorHTMLAttributes<HTMLAnchorElement>, HTMLAnchorElement> {     
-    title: string  
-    seria: boolean;  
+    data: Illustration;
+    isSeriaDecor: boolean;
     src: string;
     href: string;       
 }

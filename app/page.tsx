@@ -17,9 +17,9 @@ export default async function Home() {
       <Htag tag='h1'>Иллюстратор Громова Мария</Htag>
       <div className="container">
           <Hero/>
-          <MainIllustrations illustrationsList={illustrationsList}/>
+          <MainCovers id="coversMain" coversList={coversList} />         
           <Divider/>
-          <MainCovers id="coversMain" coversList={coversList} />
+          <MainIllustrations illustrationsList={illustrationsList}/>
           <Divider opt="right"/>       
           <ShortServices servicesList={servicesList}/>
           <Divider/>

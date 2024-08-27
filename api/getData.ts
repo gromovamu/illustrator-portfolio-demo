@@ -1,5 +1,3 @@
-
-
 import { PrismaClient } from '@prisma/client';
 import { Cover, Illustration, IllustrationData, IllustrationDetail, Seria } from '@/interfaces/data.interfaces';
 
@@ -11,9 +9,14 @@ const selectIllustration = {
       id: true,
       seriaId: true,
       title: true,
-      url: true
-    }
-  }
+      url: true,
+      seria_illustration_seriaIdToseria: {
+        select: {
+          title: true
+        }
+      }
+    },   
+  } 
 };
 
 interface IllustrationResult {
@@ -21,15 +24,23 @@ interface IllustrationResult {
     id: number,
     seriaId: null | number,
     title: string,
-    url: string
+    url: string,
+    seria_illustration_seriaIdToseria: {
+      title: string
+    } | null
   }
 }
 
-const getIllustrationArr = (illustrationList: IllustrationResult[]): Illustration[] => {
-  return illustrationList.map(illustration => (
+const getIllustrationArr = (illustrationList: IllustrationResult[]): Illustration[] => {  
+  return illustrationList.map(data => (
     {
-      ...illustration.illustration,
-      href: generatePageLinkById(illustration.illustration.id, illustration.illustration.seriaId)
+      //...data.illustration,  
+      id:data?.illustration.id,
+      seriaId:data?.illustration.seriaId,
+      title:data?.illustration.title,
+      url:data?.illustration.url,
+      seriaTitle: data?.illustration.seria_illustration_seriaIdToseria?.title,  
+      href: generatePageLinkById(data.illustration.id, data.illustration.seriaId)
     }));
 };
 
