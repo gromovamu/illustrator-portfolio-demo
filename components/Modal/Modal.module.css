@@ -8,6 +8,7 @@
     display: flex;    
     justify-content: center;     
     background: var(--background-modal-color);
+    overflow: scroll;
 }
 
 .container {
