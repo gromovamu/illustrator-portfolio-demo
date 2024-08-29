@@ -8,6 +8,11 @@
 
 .data {
     position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;   
+    gap: var(--padding);
+    width: 100%;
 }
 
 .arrow {
@@ -30,8 +35,7 @@
 
 .img {
     width: 100%;
-    height: 100%;
-    max-width: 512px;
+    height: 100%;    
     overflow: hidden;
     border-radius: 10px; 
   }
@@ -107,24 +111,6 @@
     .container {      
         display: none;
     }
-    
-    .arrow {     
-        position: absolute;
-        visibility: visible;
-        bottom: calc(50% - 18px);      
-    }
-
-    .arrow:disabled {
-        display: none;
-    }
-
-    .left {
-        left: -18px;
-    }
-
-    .right {
-        right: -18px;
-    }
 
     .btnContainer {
         display: flex;
@@ -143,4 +129,34 @@
     .active {
         background-color: var(--nav-color-hover);
     }
+
+    .img-btn-block {
+        position: relative;
+    }
+
+    .left {
+        left: -18px;
+    }
+
+    .right {
+        right: -18px;
+    }
+
+    .arrow {     
+        position: absolute;
+        visibility: visible;
+        bottom: calc(50% - 18px);      
+    }
+
+    .arrow:disabled {
+        display: none;
+    }
+
+    .btn-container {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        flex-wrap: wrap;
+    }
+    
 }
