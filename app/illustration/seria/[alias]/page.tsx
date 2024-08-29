@@ -23,9 +23,9 @@ export default async function SeriaDetailPage({ params }: { params: { alias: str
     notFound();
   }
 
-  const hrefList = await getHrefList();
-  const indexInArrHref = hrefList.findIndex(item => item.id === seriaInfo.illustrationId);
-  const nextPrevUrl = indexInArrHref===-1? null: getNextPrev(indexInArrHref, hrefList.map(item => item.href));  
+  const hrefList = await getHrefList(); 
+  const indexInArrHref = hrefList.findIndex(item => item.seriaId === seriaId);    
+  const nextPrevUrl = indexInArrHref===-1? null: getNextPrev(indexInArrHref, hrefList.map(item => item.href)); 
 
   return (<div className="container">
     <div className="section">    

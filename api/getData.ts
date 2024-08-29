@@ -15,8 +15,8 @@ const selectIllustration = {
           title: true
         }
       }
-    },   
-  } 
+    },
+  }
 };
 
 interface IllustrationResult {
@@ -31,15 +31,15 @@ interface IllustrationResult {
   }
 }
 
-const getIllustrationArr = (illustrationList: IllustrationResult[]): Illustration[] => {  
+const getIllustrationArr = (illustrationList: IllustrationResult[]): Illustration[] => {
   return illustrationList.map(data => (
     {
       //...data.illustration,  
-      id:data?.illustration.id,
-      seriaId:data?.illustration.seriaId,
-      title:data?.illustration.title,
-      url:data?.illustration.url,
-      seriaTitle: data?.illustration.seria_illustration_seriaIdToseria?.title,  
+      id: data?.illustration.id,
+      seriaId: data?.illustration.seriaId,
+      title: data?.illustration.title,
+      url: data?.illustration.url,
+      seriaTitle: data?.illustration.seria_illustration_seriaIdToseria?.title,
       href: generatePageLinkById(data.illustration.id, data.illustration.seriaId)
     }));
 };
@@ -126,7 +126,7 @@ export async function getAllIllustrution(): Promise<Illustration[]> {
   }).then(getIllustrationArr);
 }
 
-export async function getHrefList(): Promise<{ id: number, href: string }[]> {
+export async function getHrefList(): Promise<{ id: number, seriaId: number | null, href: string }[]> {
   return prisma.illustrationList.findMany({
     select: {
       illustration: {
@@ -138,6 +138,7 @@ export async function getHrefList(): Promise<{ id: number, href: string }[]> {
     }
   }).then(idList => idList.map(({ illustration }) => ({
     id: illustration.id,
+    seriaId: illustration.seriaId,
     href: generatePageLinkById(illustration.id, illustration.seriaId)
   })))
     .catch(errorGetEmptyList);
