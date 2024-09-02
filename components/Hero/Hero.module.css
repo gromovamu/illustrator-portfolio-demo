@@ -45,6 +45,9 @@
     .container {
       width: 85%;
     }
+    .text {
+      width: 90%;
+    }
   }
   
   @media (max-width: 1000px) {
@@ -53,7 +56,7 @@
     }
   
     .text {
-      width: 95%;
+      width: 87%;
     }
   }
   

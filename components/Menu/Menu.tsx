@@ -22,7 +22,7 @@ export const Menu = ({ menu, className, ...props}: MenuProps): JSX.Element => {
        { menu.left.map(m => makeItem(m))} 
     </ul>
 
-    <Logo  isLink={false}/>
+    <Logo  isLink={true}/>
 
     <ul className={cn("list", styles.list, styles.right)}>  
        { menu.right.map(m => makeItem(m))} 

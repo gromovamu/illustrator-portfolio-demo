@@ -149,6 +149,17 @@
     .seria-decor {
       box-shadow: 5px 2px 10px 0 var(--decor-light-color); 
     }
+
+    .card:active .descr {
+      background-color: transparent;
+      opacity: 1;
+    }  
+
+    .card:active  {     
+      box-shadow: 5px 2px 10px 0 var(--decor-color); 
+      background-color: var(--decor-block-color);
+      outline: none;
+    }
    }  
   
   
