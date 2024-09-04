@@ -264,16 +264,10 @@ export function getLinksPrevNextBySeria(id: number, arr: Illustration[]): { prev
   return null;
 }
 
-export function generatePageLink(illustration: Illustration) {
-  return illustration.seriaId === null ? `/illustration/${illustration.id.toString()}` :
-    `/illustration/seria/${illustration.seriaId.toString()}`;
-} //устаревший вариант для подхода с генерацией страницы на каждую отдельную илллюстрацию
-//TODO: разобраться
-
 //
 export function generatePageLinkById(id: number, seriaId: number | null) {
-  return seriaId === null ? `/illustration/single?id=${id.toString()}` :
-    `/illustration/seria/${seriaId.toString()}`;
+  return seriaId === null ? `${process.env.NEXT_PUBLIC_PATH_ILLUSTRATION}?id=${id.toString()}` :
+    `${process.env.NEXT_PUBLIC_PATH_SERIA}/${seriaId.toString()}`;
 }
 
 // преобразование объекта Illustration в объект IllustrationData

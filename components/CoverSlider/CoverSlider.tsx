@@ -52,7 +52,8 @@ export const CoverSlider = ({ coverList, className, ...props }: CoverSliderProps
     {((coverList) && (coverList.length!==0)) && <div className={cn("slider-container", styles.container, className)}
       {...props}>
       <div className="screenreader">Слайдер с обложками</div>
-      <div className={cn("navigation-wrapper", styles.wrapper)}>
+      <div className={cn("navigation-wrapper", styles.wrapper, 
+              { [styles.wait]: !loaded })}>
         <ArrowButton className={cn(styles.arrow, styles.left)}
           opt="left"
           onClick={() => instanceRef.current?.prev()}

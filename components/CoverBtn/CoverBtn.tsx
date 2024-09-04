@@ -9,7 +9,8 @@ export const CoverBtn = ({ srcImg, className, ...props }: CoverBtnProps): JSX.El
     <button className={cn("btn", styles.cover, className)} {...props}>      
       <ExportedImage className={styles.img}
         width={210}
-        height={305}        
+        height={305}  
+        priority={true}   
         src={srcImg}
         alt='' 
         />

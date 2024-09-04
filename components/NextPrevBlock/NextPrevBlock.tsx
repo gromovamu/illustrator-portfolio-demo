@@ -7,17 +7,21 @@ import PrevIcon from "@/public/svg/navBtnPrevIcon.svg";
 import { decorFont } from "@/fonts/fonts";
 
 export const NextPrevBlock = ({ urlData, className, ...props }: NextPrevBlockProps): JSX.Element => {
+  const getText = (url:string) => url.includes('seria')?'серия':'работа';
+  const prevUrl = urlData.prev??'';
+  const nextUrl = urlData.next??'';
+
   return (<div className={cn(styles.block, decorFont.className, className)} {...props}>
     <Link className={cn(styles.link, styles.prev, {
       [styles.disable]: urlData.prev === null
-    })} href={urlData.prev??''}>
+    })} href={prevUrl}>
       <PrevIcon className={styles.icon} />
-      <span>Предыдущая работа</span>
+      <span>{`Предыдущая ${getText(prevUrl)}`}</span>
     </Link>    
     <Link className={cn(styles.link, styles.next, {
       [styles.disable]: urlData.next === null
-    })} href={urlData.next??''}>
-      <span>Следующая работа</span>
+    })} href={nextUrl}>
+      <span>{`Следующая ${getText(nextUrl)}`}</span>
       <NextIcon className={styles.icon} />
     </Link>
   </div>
