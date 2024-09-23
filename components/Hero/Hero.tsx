@@ -2,7 +2,7 @@ import { HeroProps } from "./Hero.props";
 import styles from "./Hero.module.css";
 import cn from "classnames";
 import { Htag, InfoCard, InlineLink, Text } from "@/components";
-import ExportedImage from "next-image-export-optimizer";
+//import ExportedImage from "next-image-export-optimizer";
 
 export const Hero = ({ className, ...props }: HeroProps): JSX.Element => { 
   return (
@@ -17,11 +17,15 @@ export const Hero = ({ className, ...props }: HeroProps): JSX.Element => {
         </InfoCard>
 
         <div className={styles['avatar-container']}>
-          <ExportedImage className={styles.avatar}            
+          <img className={styles.avatar}            
             width={358}
-            height={358}
-            unoptimized
-            priority={true}           
+            height={358}           
+            srcSet={
+              `${process.env.NEXT_PUBLIC_MAIN_PATH}/avatar-250.webp 250w,
+               ${process.env.NEXT_PUBLIC_MAIN_PATH}/avatar.webp 358w`}
+            sizes="                
+                (max-width: 860px) 250px,                
+                358px"   
             src={`${process.env.NEXT_PUBLIC_MAIN_PATH}/avatar.png`}
             alt='' />
         </div>
