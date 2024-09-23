@@ -32,7 +32,8 @@
     position: absolute;
     right: var(--padding);
     top: var(--padding);
-    color: var(--nav-color);    
+    padding: 4px;
+    color: var(--nav-color);       
     transition: color 0.3s ease-in-out;
 }
 
@@ -55,15 +56,12 @@
 }
 
 @media (max-width:860px) {
-    .close-icon {
-        width: 20px;
-        height: 20px;
+    .close-btn {
+        top: calc(var(--padding-small) + 90px);
     }
-}
 
-@media (max-width:520px) {
     .close-icon {
-        width: 16px;
-        height: 16px;
+        width: 1.2rem;
+        height: 1.2rem;
     }
 }
