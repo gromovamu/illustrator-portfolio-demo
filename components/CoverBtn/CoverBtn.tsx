@@ -12,6 +12,7 @@ export const CoverBtn = ({ srcImg, className, ...props }: CoverBtnProps): JSX.El
         height={305}  
         priority={true}   
         src={srcImg}
+        placeholder="empty"
         alt='' 
         />
     </button>

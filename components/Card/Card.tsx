@@ -17,7 +17,8 @@ export const Card = ({ data, isSeriaDecor,  src, href, className, ...props }: Ca
         width={420}
         height={420}
         sizes="(max-width: 520px) 380px, (max-width: 760px) 420px,  380px"
-        src={src}
+        placeholder="empty"
+        src={src}        
         alt='' />
 
       <div className={styles.descr}>

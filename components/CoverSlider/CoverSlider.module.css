@@ -3,41 +3,77 @@
     width: 100%;   
 }
 
-.wrapper {
+.wrapper {    
     display: flex;
     gap: 0 8px;
     align-items: center;    
 }
 
-.slider {
-    padding: 5px 0;
+.slider {   
+    padding: 5px 0;   
+}
+
+.swait {
+    display: flex;
+    gap: 30px;
+}
+
+.wait {   
+    border-radius: 3px;    
+    background: var(--decor-block-color);     
+}
+
+.wait:nth-child(n+6) {  
+    display: none;
 }
 
 .hidden {
     opacity: 0;
 }
 
-.wait {
-    position: relative;
-    margin: var(--padding--big);
-    background: var(--decor-block-color);
-}
-.wait::before {
-    content: 'Загрузка слайдера';
+.load {
     position: absolute;
     top:0;
-    left: 0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    left:0;
+    display: grid;
+    grid-template-columns: repeat(6, 1fr);
+    gap: var(--padding);
     width: 100%;
-    height: 100%;
-    font-size: 1.3rem;
-    color: var(--title-color);
+    height: 100%;       
+}
+
+.plug {    
+    border-radius: 3px;    
+    background: var(--decor-block-color);
+    height:  100%;
+    color: black;
+    font-size: 1rem;
+}
+
+@media (max-width: 1200px) {
+     .wait:nth-child(n+5){
+        display: none;
+     }
+}
+
+@media (max-width: 1000px) {
+    .wait:nth-child(n+4){
+        display: none;
+     }
 }
 
 @media (max-width: 860px) {
-    .wrapper {
-        gap: 0 2px;
+    .swait {      
+        gap: var(--padding-small);      
     }
+
+    .wait:nth-child(n+4){
+        display: none;
+     }
+}
+
+@media (max-width: 520px) {
+    .wait:nth-child(n+3){
+        display: none;
+     }
 }
