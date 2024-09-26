@@ -23,7 +23,7 @@
     background: var(--decor-block-color);     
 }
 
-.wait:nth-child(n+6) {  
+.wait:nth-child(n+7) {  
     display: none;
 }
 
@@ -51,13 +51,13 @@
 }
 
 @media (max-width: 1200px) {
-     .wait:nth-child(n+5){
+     .wait:nth-child(n+6){
         display: none;
      }
 }
 
 @media (max-width: 1000px) {
-    .wait:nth-child(n+4){
+    .wait:nth-child(n+5){
         display: none;
      }
 }

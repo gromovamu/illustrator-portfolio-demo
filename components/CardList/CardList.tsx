@@ -14,16 +14,28 @@ export const CardList = ({ seriaDecor, cardList, className, ...props }: CardList
 
   const handleAddCanOpen = (i: number): void => {
     setIsCanOpenArr(arr => { arr.splice(i, 1, true); return [...arr]; });   
-  };  
+  };    
 
-  useEffect(() => {  
+  const checkScroll= () => {
     const topPos = listRef.current?.offsetTop??0;
     const height = listRef.current?.clientHeight??0;
-  
-    if((topPos + height / 2) < window.scrollY){
+    if((topPos + height * 0.1) < window.scrollY){
       setIsAnimate(false);   
     } 
-  },[listRef]);
+  };
+
+  useEffect(() => {
+    checkScroll();
+    const scrollInit = () => { 
+      //scroll до нужного места при переходе вперед/назад в next происходит уже после 
+      //загрузки компонента на страницу
+      // поэтому отслеживаю так и проверяю 2 раза//TODO: поискать еще способы    
+      checkScroll();
+      window.removeEventListener("scroll", scrollInit);
+    };
+
+    window.addEventListener("scroll", scrollInit);
+  },[]);
 
   return (
     <ul ref = {listRef} className={cn(styles.list, className)} {...props}>
