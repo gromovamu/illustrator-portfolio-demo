@@ -1,5 +1,5 @@
-import styles from './loading.module.css';
-import LogoIcon from '@/components/Logo/logoIcon.svg';
+import styles from "./loading.module.css";
+import LogoIcon from "@/components/Logo/logoIcon.svg";
 import { decorFont } from "@/fonts/fonts";
 import cn from "classnames";
 

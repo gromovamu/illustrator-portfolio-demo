@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { BurgerMenuProps } from "./BurgerMenu.props";
 import styles from "./BurgerMenu.module.css";
@@ -7,8 +7,8 @@ import cn from "classnames";
 import Link from "next/link";
 import { Logo, BurgerButton } from "@/components";
 import { useState } from "react";
-import { useSpring, animated, useReducedMotion } from '@react-spring/web';
-import { easings } from '@react-spring/web';
+import { useSpring, animated, useReducedMotion } from "@react-spring/web";
+import { easings } from "@react-spring/web";
 import { MouseEvent } from "react";
 import { onClickIntoScroll } from "@/utils/onClickIntoScroll";
 
@@ -18,7 +18,7 @@ export const BurgerMenu = ({ menu, className, ...props }: BurgerMenuProps): JSX.
 
   const hideAnimate = useSpring(
     {
-      x: isOpenMode ? '0%' : '-120%',
+      x: isOpenMode ? "0%" : "-120%",
       opacity: isOpenMode ? 1 : 0,
       config: {
         duration: isOpenMode ? 500 : 300,

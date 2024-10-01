@@ -1,17 +1,17 @@
-'use client';
-import { usePathname, useSearchParams , useParams } from 'next/navigation';
+"use client";
+import { usePathname, useSearchParams , useParams } from "next/navigation";
 import { Divider, Htag } from "@/components";
 import cn from "classnames";
-import { notFound } from 'next/navigation';
+import { notFound } from "next/navigation";
 
 export default function IllustrationsListPage() {  
   const pathname = usePathname();
   const params = useParams<{ tag: string; item: string }>();
   const searchParams = useSearchParams();
  
-  const search = searchParams.get('id');
+  const search = searchParams.get("id");
   //если id не указан в запросе, то по умолчанию 0
-  const id = parseInt(search??'0', 10) ;
+  const id = parseInt(search??"0", 10) ;
   if (isNaN(id)) {
     notFound();
   }

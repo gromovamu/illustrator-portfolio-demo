@@ -11,7 +11,7 @@ export const Header = ({ ...props }: HeaderProps): JSX.Element => {
 
   return (<header className={cn(styles.header, decorFont.className)} {...props}>
     <div className={styles.fixedTop}>
-      <div className={cn('container', styles.container)}>
+      <div className={cn("container", styles.container)}>
         <Menu menu={menuLinkData} />
         <BurgerMenu menu={burgerMenu} />
       </div>

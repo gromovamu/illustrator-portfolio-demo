@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { MainCoversProps } from "./MainCovers.props";
 import cn from "classnames";
 import { Htag, CoverSlider, LinkButton } from "@/components";

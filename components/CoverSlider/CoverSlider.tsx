@@ -1,11 +1,11 @@
-'use client';
+"use client";
 
 import { CoverSliderProps } from "./CoverSlider.props";
 import styles from "./CoverSlider.module.css";
 import cn from "classnames";
 
-import 'keen-slider/keen-slider.min.css';
-import { useKeenSlider } from 'keen-slider/react';
+import "keen-slider/keen-slider.min.css";
+import { useKeenSlider } from "keen-slider/react";
 import { ArrowButton, Cover, CoverBtn, Modal } from "@/components";
 import { useState } from "react";
 import { useReducedMotion } from "@react-spring/web";

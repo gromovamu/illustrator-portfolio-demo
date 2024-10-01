@@ -1,7 +1,7 @@
-'use client';
+"use client";
 import styles from "./Illustration.module.css";
 import { IllustrationProps } from "./Illustration.props";
-import { useSearchParams, notFound } from 'next/navigation';
+import { useSearchParams, notFound } from "next/navigation";
 import { IllustrationDetails } from "../IllustrationDetails/IllustrationDetails";
 import { formIllustrationData } from "@/api/getData";
 import cn from "classnames";
@@ -12,9 +12,9 @@ import ExportedImage from "next-image-export-optimizer";
 export const Illustration = ({ illustrationList, hrefList, className, ...props }: IllustrationProps): JSX.Element => {
 
   const searchParams = useSearchParams();
-  const search = searchParams.get('id');
+  const search = searchParams.get("id");
 
-  const id = parseInt(search ?? '', 10);
+  const id = parseInt(search ?? "", 10);
 
   isNaN(id) && notFound();
 

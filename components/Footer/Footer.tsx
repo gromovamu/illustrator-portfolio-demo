@@ -8,7 +8,7 @@ import { SocialLink } from "@/components";
 export const Footer = ({ socialLinkList, className, ...props }: FooterProps): JSX.Element => {
     const nowDate = new Date();   
     return (
-        <footer className={cn('container', styles.footer, className)}
+        <footer className={cn("container", styles.footer, className)}
             {...props}>
             <ul className={styles.socialList}>
                 {socialLinkList && socialLinkList.map(link => (

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { CardItemProps, CardListProps } from "./CardList.props";
 import styles from "./CardList.module.css";
 import cn from "classnames";
@@ -50,7 +50,7 @@ export const CardList = ({ seriaDecor, cardList, className, ...props }: CardList
               isAnimate = {isAnimate}
               isCanOpen={isCanOpenArr[i]}
               handleSetCanOpen={handleAddCanOpen}>
-              <Card data={card} isSeriaDecor={seriaDecor} src={card.url} href={card.href ?? ''} />     
+              <Card data={card} isSeriaDecor={seriaDecor} src={card.url} href={card.href ?? ""} />     
             </CardItem>
           );
         })

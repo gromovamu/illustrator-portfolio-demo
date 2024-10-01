@@ -10,7 +10,7 @@ export const Card = ({ data, isSeriaDecor,  src, href, className, ...props }: Ca
   
   return (
     <Link className={cn(styles.card, decorFont.className, className,{
-      [styles['seria-decor']]: isSeria && isSeriaDecor
+      [styles["seria-decor"]]: isSeria && isSeriaDecor
     } )} href={href} {...props}
       aria-label={`Открыть страницу иллюстрации ${data.title}`}>
       <ExportedImage className={styles.img}
@@ -30,7 +30,7 @@ export const Card = ({ data, isSeriaDecor,  src, href, className, ...props }: Ca
           <div className={styles.series}>
             Серия
           </div>
-          {data.seriaTitle && <div className={styles['series-title']}>
+          {data.seriaTitle && <div className={styles["series-title"]}>
             {data.seriaTitle}
           </div>}
         </>)

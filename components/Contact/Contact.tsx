@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { ContactProps } from "./Contact.props";
 import styles from "./Contact.module.css";
 import cn from "classnames";

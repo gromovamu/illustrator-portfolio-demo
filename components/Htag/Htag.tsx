@@ -7,9 +7,9 @@ import { decorFont } from "@/fonts/fonts";
 
 export const Htag = ({tag, opt, children, className}: HTagProps): JSX.Element => {   
     const titleClassNames = () => cn(decorFont.className, styles.title, className, {
-        [styles.big] : opt == 'big',
-        [styles.medium] : opt == 'medium',
-        [styles.small] : opt == 'small'               
+        [styles.big] : opt == "big",
+        [styles.medium] : opt == "medium",
+        [styles.small] : opt == "small"               
     });
 
     switch(tag) {

@@ -2,9 +2,9 @@ import { DividerProps } from "./Divider.props";
 import styles from "./Divider.module.css";
 import cn from "classnames";
 
-export const Divider = ({opt='left', className, ...props}: DividerProps): JSX.Element => {   
+export const Divider = ({opt="left", className, ...props}: DividerProps): JSX.Element => {   
     return (<div className={cn(styles.decor, className, {
-        [styles.mirror]: opt=='right'
+        [styles.mirror]: opt=="right"
     })} {...props}>
     <div className={cn(styles.lines, styles.short)}>
     </div>

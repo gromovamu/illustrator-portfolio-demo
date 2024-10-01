@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { SeriaProps } from "./Seria.props";
 import styles from "./Seria.module.css";
 import cn from "classnames";
@@ -17,9 +17,9 @@ export const Seria = ({ ...props }: SeriaProps): JSX.Element => {
 
   useEffect(() => {
     onResize();
-    window.addEventListener('resize', onResize);
+    window.addEventListener("resize", onResize);
     return () => {
-      window.removeEventListener('resize', onResize);
+      window.removeEventListener("resize", onResize);
     };
   }, []);
 
@@ -42,7 +42,7 @@ export const SeriaDesktop = ({ seria, illustrationDataList, className, ...props 
   };
 
   const getAriaLabel = (img: IllustrationData) => {
-    return `Увеличить иллюстрацию ${getPropertyInfoDetail('Название', img.details)}`;
+    return `Увеличить иллюстрацию ${getPropertyInfoDetail("Название", img.details)}`;
   };
 
   return (
@@ -56,7 +56,7 @@ export const SeriaDesktop = ({ seria, illustrationDataList, className, ...props 
           <ImgButton key={`${seria.id}_${i}`}
             className={styles.card}
             imgUrl={img.url}
-            alt={getPropertyInfoDetail('Название', img.details)}
+            alt={getPropertyInfoDetail("Название", img.details)}
             onClick={() => onClick(i)}
             aria-label={getAriaLabel(img)}
           />
@@ -64,9 +64,9 @@ export const SeriaDesktop = ({ seria, illustrationDataList, className, ...props 
       </div>
 
       <Modal isOpen={isOpenModal} setIsOpen={setIsOpenModal}>
-        <div className={styles['modal-container']}>
+        <div className={styles["modal-container"]}>
           <Text className={styles.title}>{
-            getPropertyInfoDetail('Название', illustrationDataList[activeImgIndex].details)
+            getPropertyInfoDetail("Название", illustrationDataList[activeImgIndex].details)
           } </Text>
 
           <ExportedImage className={styles.img}
@@ -104,7 +104,7 @@ const SeriaMobile = ({ seria, illustrationDataList, className, ...props }: Seria
   };
 
   const getAriaLabel = (img: IllustrationData) => {
-    return `Выбрать иллюстрацию ${getPropertyInfoDetail('Название', img.details)}`;
+    return `Выбрать иллюстрацию ${getPropertyInfoDetail("Название", img.details)}`;
   };
 
   return (
@@ -113,8 +113,8 @@ const SeriaMobile = ({ seria, illustrationDataList, className, ...props }: Seria
 
         <IllustrationDetails data={[...seriaDetail, ...illustrationDataList[activeImgIndex].details]} />
 
-        <div className={styles['img-btn-block']}>
-          <button className={cn('btn', styles['img-btn'])}
+        <div className={styles["img-btn-block"]}>
+          <button className={cn("btn", styles["img-btn"])}
             onClick={onClickImg}>
             <ExportedImage className={styles.img}
               width={512}
@@ -138,7 +138,7 @@ const SeriaMobile = ({ seria, illustrationDataList, className, ...props }: Seria
         </div>
       </div>
 
-      <div className={styles['btn-container']}>
+      <div className={styles["btn-container"]}>
         {illustrationDataList.map((img, i) => (
           <Button key={`btn_${seria.id}_${i}`}
             className={cn(styles.btn, {

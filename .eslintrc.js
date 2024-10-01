@@ -18,6 +18,7 @@ module.exports = {
     ],
     "rules": {
         "semi": "off",
+        "quotes": ["warn", "double", { "avoidEscape": true, "allowTemplateLiterals": true }],
 		"@typescript-eslint/semi": [
 			"warn"
 		],

@@ -1,4 +1,4 @@
-'use client';
+"use client";
 import { Text, Htag } from "@/components";
 //import ExportedImage from "next-image-export-optimizer";
 import styles from "./page.module.css";

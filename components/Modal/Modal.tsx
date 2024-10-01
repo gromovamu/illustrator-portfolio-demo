@@ -1,4 +1,4 @@
-'use client';
+"use client";
 
 import { ModalProps } from "./Modal.props";
 import styles from "./Modal.module.css";
@@ -15,10 +15,10 @@ export const Modal = ({ isOpen, setIsOpen, children, className }: ModalProps): J
       <DialogPanel transition className={cn(styles.panel)}>
         {children}
 
-        <button className={cn('btn', styles['close-btn'])}
+        <button className={cn("btn", styles["close-btn"])}
           onClick={() => { setIsOpen(false); }}
           aria-label="Закрыть окно просмотра">
-          <CloseIcon className={styles['close-icon']} />
+          <CloseIcon className={styles["close-icon"]} />
         </button>
 
       </DialogPanel>

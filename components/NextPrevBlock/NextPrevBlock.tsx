@@ -7,9 +7,9 @@ import PrevIcon from "@/public/svg/navBtnPrevIcon.svg";
 import { decorFont } from "@/fonts/fonts";
 
 export const NextPrevBlock = ({ urlData, className, ...props }: NextPrevBlockProps): JSX.Element => {
-  const getText = (url:string) => url.includes('seria')?'серия':'работа';
-  const prevUrl = urlData.prev??'';
-  const nextUrl = urlData.next??'';
+  const getText = (url:string) => url.includes("seria")?"серия":"работа";
+  const prevUrl = urlData.prev??"";
+  const nextUrl = urlData.next??"";
 
   return (<div className={cn(styles.block, decorFont.className, className)} {...props}>
     <Link className={cn(styles.link, styles.prev, {
